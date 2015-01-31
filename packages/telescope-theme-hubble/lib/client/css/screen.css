@@ -1,0 +1,3319 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 35, ../scss/partials/_grid.scss */
+
+
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic";
+#login-buttons-image-twitter {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVQ4jaVTz0sbQRh92V10l006GaKJCtEtmqMYU0Qpwqb4B6zgXdT0WEr7B0ih4MGLP05CUWMvHkQwglhvGhsvKmJOBhTUQjWU2slilKarrAfdZROTQ8m7fPMx33szb75vXKZpohpwVbEBCNaCMUYopXppAWOMxDNsOPf3H1WIeDoSURYYYwQAKKW6y7KgLe2vam11KyMRZcEpEP6SOkwbUgc4ATAKUF8YW2fXhZejvaHPsc7gvH2DnCfQGEtdxrd/5NRJteUDpVTf+5kLp2WlA6JsCyZv9ChplPKdTfJZkYWhEF3bvnV3fb36NZSY3dP6Q/5V4hFvIAaKPckE8W5pLBIQdwHAthBdPtpJuhpeAwDu74DrP4/R1/Ts4cwBWg/gN+DowoSqTBPezAMAeAHw+suSw4Q7schFApF6af19a+2yLVIB7xR+0Zk75yCveu82FMnMViKHCXcSa3PPVBJAX5BszL2SP2kNwvdy5M1e+S2AogME4HFYPibPpxKZC03nRAp/M+Dx2UWDzTXfpttrx72ikCoVtrrAAwgdXBk9iazxxtpskfhs1O86aHXXpAEcA7ivJGDBDcDnyAsA2FMsi1KB/0bVv/EBBBSY9mZ7PAsAAAAASUVORK5CYII=");
+}
+#login-buttons-image-facebook {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVQ4jWP8//8/AyWAhYGBgcEmauYZBgYGYxL1nj2yLN2ECcohVTNcDwsxKlXlhRm6yzwZRAS5GRgYGBhsombC5ZhwaUIGyJrRAVEuwGYzSS7AB/C64MiydKx8ZJfgNeDN+68MDAwIL8D4RLsgIHsJis0wPjKgOAyoE4hcnGwMGkpiBBUbacvA2TfuvaKiC759/3X23NUnOPMDtgTEwMBwloGBgYGR0uwMAGOPLJS9mkQHAAAAAElFTkSuQmCC");
+}
+
+
+
+#login-buttons {
+    display: inline-block;
+    line-height: 1;
+    margin-right: 0.2px;
+}
+#login-buttons .login-button {
+    position: relative;
+}
+#login-buttons .login-buttons-with-only-one-button {
+    display: inline-block;
+}
+#login-buttons .login-buttons-with-only-one-button .login-button {
+    display: inline-block;
+}
+#login-buttons .login-buttons-with-only-one-button .login-text-and-button {
+    display: inline-block;
+}
+#login-buttons .login-display-name {
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+    padding-right: 2px;
+}
+#login-buttons .loading {
+    background-image: url("data:image/gif;base64,R0lGODlhEAALAPQAAP///wAAANra2tDQ0Orq6gYGBgAAAC4uLoKCgmBgYLq6uiIiIkpKSoqKimRkZL6+viYmJgQEBE5OTubm5tjY2PT09Dg4ONzc3PLy8ra2tqCgoMrKyu7u7gAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCwAAACwAAAAAEAALAAAFLSAgjmRpnqSgCuLKAq5AEIM4zDVw03ve27ifDgfkEYe04kDIDC5zrtYKRa2WQgAh+QQJCwAAACwAAAAAEAALAAAFJGBhGAVgnqhpHIeRvsDawqns0qeN5+y967tYLyicBYE7EYkYAgAh+QQJCwAAACwAAAAAEAALAAAFNiAgjothLOOIJAkiGgxjpGKiKMkbz7SN6zIawJcDwIK9W/HISxGBzdHTuBNOmcJVCyoUlk7CEAAh+QQJCwAAACwAAAAAEAALAAAFNSAgjqQIRRFUAo3jNGIkSdHqPI8Tz3V55zuaDacDyIQ+YrBH+hWPzJFzOQQaeavWi7oqnVIhACH5BAkLAAAALAAAAAAQAAsAAAUyICCOZGme1rJY5kRRk7hI0mJSVUXJtF3iOl7tltsBZsNfUegjAY3I5sgFY55KqdX1GgIAIfkECQsAAAAsAAAAABAACwAABTcgII5kaZ4kcV2EqLJipmnZhWGXaOOitm2aXQ4g7P2Ct2ER4AMul00kj5g0Al8tADY2y6C+4FIIACH5BAkLAAAALAAAAAAQAAsAAAUvICCOZGme5ERRk6iy7qpyHCVStA3gNa/7txxwlwv2isSacYUc+l4tADQGQ1mvpBAAIfkECQsAAAAsAAAAABAACwAABS8gII5kaZ7kRFGTqLLuqnIcJVK0DeA1r/u3HHCXC/aKxJpxhRz6Xi0ANAZDWa+kEAA7AAAAAAAAAAAA");
+    background-position: center center;
+    background-repeat: no-repeat;
+    line-height: 1;
+    width: 16px;
+}
+#login-buttons .login-button, .accounts-dialog .login-button {
+    -moz-user-select: none;
+    background: none repeat scroll 0 0 #596595;
+    border: 1px solid #464f75;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 80%;
+    line-height: 1.5;
+    padding: 4px 8px;
+    text-align: center;
+}
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
+    background: none repeat scroll 0 0 #7580ac;
+}
+#login-buttons .login-button:active, .accounts-dialog .login-button:active {
+    background: none repeat scroll 0 0 #7580ac;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2) inset;
+}
+#login-buttons .login-button.login-button-disabled, .accounts-dialog .login-button.login-button-disabled, #login-buttons .login-button.login-button-disabled:active, .accounts-dialog .login-button.login-button-disabled:active {
+    background: none repeat scroll 0 0 #aaa;
+    border: 1px solid #c3c3c3;
+    box-shadow: none;
+    color: #ddd;
+}
+.accounts-dialog * {
+    color: inherit;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-feature-settings: inherit;
+    font-kerning: inherit;
+    font-language-override: inherit;
+    font-size: inherit;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-synthesis: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.accounts-dialog .login-button {
+    margin-bottom: 4px;
+    width: auto;
+}
+#login-buttons .login-buttons-padding {
+    display: inline-block;
+    width: 30px;
+}
+#login-buttons .login-display-name {
+    margin-right: 4px;
+}
+#login-buttons .configure-button {
+    background: none repeat scroll 0 0 #ff2a00;
+    border-color: #cc2200;
+}
+#login-buttons .configure-button:active, #login-buttons .configure-button:hover {
+    background: none repeat scroll 0 0 #ff5533;
+    border-color: #ff2a00;
+}
+#login-buttons .login-image {
+    display: inline-block;
+    height: 16px;
+    left: 6px;
+    position: absolute;
+    top: 6px;
+    width: 16px;
+}
+#login-buttons .text-besides-image {
+    margin-left: 18px;
+}
+#login-buttons .no-services {
+    color: red;
+}
+#login-buttons .login-link-and-dropdown-list {
+    position: relative;
+}
+#login-buttons .login-close-text {
+    float: left;
+    padding-bottom: 8px;
+    position: relative;
+}
+#login-buttons .login-text-and-button .loading, #login-buttons .login-link-and-dropdown-list .loading {
+    display: inline-block;
+}
+#login-buttons.login-buttons-dropdown-align-left #login-dropdown-list .loading {
+    float: right;
+}
+#login-buttons.login-buttons-dropdown-align-right #login-dropdown-list .loading {
+    float: left;
+}
+#login-buttons .login-close-text-clear {
+    clear: both;
+}
+#login-buttons .or {
+    text-align: center;
+}
+#login-buttons .hline {
+    color: lightgrey;
+    text-decoration: line-through;
+}
+#login-buttons .or-text {
+    font-weight: bold;
+}
+#login-buttons #signup-link {
+    float: right;
+}
+#login-buttons #forgot-password-link {
+    float: left;
+}
+#login-buttons #back-to-login-link {
+    float: right;
+}
+#login-buttons a, .accounts-dialog a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+#login-buttons.login-buttons-dropdown-align-right .login-close-text {
+    float: right;
+}
+.accounts-dialog {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 16px;
+    margin: -8px -12px 0;
+    padding: 8px 12px;
+    width: 250px;
+    z-index: 1000;
+}
+.accounts-dialog > * {
+    line-height: 1.6;
+}
+.accounts-dialog > .login-close-text {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.accounts-dialog label, .accounts-dialog .title {
+    font-size: 80%;
+    margin-bottom: -2px;
+    margin-top: 7px;
+}
+.accounts-dialog label {
+    display: inline;
+}
+.accounts-dialog input[type="text"], .accounts-dialog input[type="email"], .accounts-dialog input[type="password"] {
+    box-sizing: border-box;
+    width: 100%;
+}
+.accounts-dialog input[type="text"][type], .accounts-dialog input[type="email"][type], .accounts-dialog input[type="password"][type] {
+    height: auto;
+}
+.accounts-dialog .login-button-form-submit {
+    margin-top: 8px;
+}
+.accounts-dialog .message {
+    font-size: 80%;
+    line-height: 1.3;
+    margin-top: 8px;
+}
+.accounts-dialog .error-message {
+    color: red;
+}
+.accounts-dialog .info-message {
+    color: green;
+}
+.accounts-dialog .additional-link {
+    font-size: 75%;
+}
+.accounts-dialog .accounts-close {
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    opacity: 0.4;
+    position: absolute;
+    right: 5px;
+    text-decoration: none;
+    top: 0;
+}
+.accounts-dialog .accounts-close:hover {
+    opacity: 0.8;
+}
+.accounts-dialog #login-buttons-cancel-reset-password {
+    float: right;
+}
+.accounts-dialog #login-buttons-cancel-enroll-account {
+    float: right;
+}
+#login-dropdown-list {
+    left: -1px;
+    position: absolute;
+    top: -1px;
+}
+#login-buttons.login-buttons-dropdown-align-right #login-dropdown-list {
+    left: auto;
+    right: -1px;
+}
+#login-buttons-message-dialog .message {
+    font-size: 100%;
+}
+.accounts-centered-dialog {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    left: 50%;
+    margin-left: -129px;
+    margin-top: -40px;
+    position: fixed;
+    top: 50%;
+    z-index: 1001;
+}
+#configure-login-service-dialog {
+    margin-left: -269px;
+    margin-top: -300px;
+    width: 530px;
+}
+#configure-login-service-dialog table {
+    width: 100%;
+}
+#configure-login-service-dialog input[type="text"] {
+    font-family: "Courier New",Courier,monospace;
+    width: 100%;
+}
+#configure-login-service-dialog ol {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#configure-login-service-dialog ol li {
+    margin-left: 30px;
+}
+#configure-login-service-dialog .configuration_labels {
+    width: 30%;
+}
+#configure-login-service-dialog .configuration_inputs {
+    width: 70%;
+}
+#configure-login-service-dialog .new-section {
+    margin-top: 10px;
+}
+#configure-login-service-dialog .url {
+    font-family: "Courier New",Courier,monospace;
+}
+#configure-login-service-dialog-save-configuration {
+    float: right;
+}
+.configure-login-service-dismiss-button {
+    float: left;
+}
+#just-verified-dismiss-button, #messages-dialog-dismiss-button {
+    margin-top: 8px;
+}
+.hide-background {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+#login-buttons input[type="text"], .accounts-dialog input[type="text"], #login-buttons input[type="email"], .accounts-dialog input[type="email"], #login-buttons input[type="password"], .accounts-dialog input[type="password"] {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    line-height: 1;
+    padding: 4px;
+}
+.autoform-remove-item {
+    margin-right: 15px;
+}
+.form-horizontal .autoform-padding-fix .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.checkbox input.autoform-checkbox-margin-fix[type="checkbox"], .checkbox-inline input.autoform-checkbox-margin-fix[type="checkbox"] {
+    margin-left: 0;
+}
+.autoform-inline-align {
+    vertical-align: top;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: outside none none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.spinner-container {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.datepicker {
+    border-radius: 4px;
+    direction: ltr;
+    padding: 4px;
+}
+.datepicker-inline {
+    width: 220px;
+}
+.datepicker.datepicker-rtl {
+    direction: rtl;
+}
+.datepicker.datepicker-rtl table tr td span {
+    float: right;
+}
+.datepicker-dropdown {
+    left: 0;
+    top: 0;
+}
+.datepicker-dropdown:before {
+    border-color: -moz-use-text-color transparent rgba(0, 0, 0, 0.2);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-style: none solid solid;
+    border-width: 0 7px 7px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+}
+.datepicker-dropdown:after {
+    border-color: -moz-use-text-color transparent #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-style: none solid solid;
+    border-width: 0 6px 6px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+}
+.datepicker-dropdown.datepicker-orient-left:before {
+    left: 6px;
+}
+.datepicker-dropdown.datepicker-orient-left:after {
+    left: 7px;
+}
+.datepicker-dropdown.datepicker-orient-right:before {
+    right: 6px;
+}
+.datepicker-dropdown.datepicker-orient-right:after {
+    right: 7px;
+}
+.datepicker-dropdown.datepicker-orient-top:before {
+    top: -7px;
+}
+.datepicker-dropdown.datepicker-orient-top:after {
+    top: -6px;
+}
+.datepicker-dropdown.datepicker-orient-bottom:before {
+    border-bottom: 0 none;
+    border-top: 7px solid #999;
+    bottom: -7px;
+}
+.datepicker-dropdown.datepicker-orient-bottom:after {
+    border-bottom: 0 none;
+    border-top: 6px solid #fff;
+    bottom: -6px;
+}
+.datepicker > div {
+    display: none;
+}
+.datepicker.days div.datepicker-days {
+    display: block;
+}
+.datepicker.months div.datepicker-months {
+    display: block;
+}
+.datepicker.years div.datepicker-years {
+    display: block;
+}
+.datepicker table {
+    -moz-user-select: none;
+    margin: 0;
+}
+.datepicker table tr td, .datepicker table tr th {
+    border: medium none;
+    border-radius: 4px;
+    height: 30px;
+    text-align: center;
+    width: 30px;
+}
+.table-striped .datepicker table tr td, .table-striped .datepicker table tr th {
+    background-color: transparent;
+}
+.datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
+    background: none repeat scroll 0 0 #eeeeee;
+    cursor: pointer;
+}
+.datepicker table tr td.old, .datepicker table tr td.new {
+    color: #999999;
+}
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #999999;
+    cursor: default;
+}
+.datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover {
+    background-color: #ffdb99;
+    border-color: #ffb733;
+    color: #000000;
+}
+.datepicker table tr td.today:hover, .datepicker table tr td.today:hover:hover, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today.disabled:hover:hover, .datepicker table tr td.today:focus, .datepicker table tr td.today:hover:focus, .datepicker table tr td.today.disabled:focus, .datepicker table tr td.today.disabled:hover:focus, .datepicker table tr td.today:active, .datepicker table tr td.today:hover:active, .datepicker table tr td.today.disabled:active, .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today.active, .datepicker table tr td.today.active:hover, .datepicker table tr td.today.disabled.active, .datepicker table tr td.today.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.today, .open .dropdown-toggle.datepicker table tr td.today:hover, .open .dropdown-toggle.datepicker table tr td.today.disabled, .open .dropdown-toggle.datepicker table tr td.today.disabled:hover {
+    background-color: #ffcd70;
+    border-color: #f59e00;
+    color: #000000;
+}
+.datepicker table tr td.today:active, .datepicker table tr td.today:hover:active, .datepicker table tr td.today.disabled:active, .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today.active, .datepicker table tr td.today.active:hover, .datepicker table tr td.today.disabled.active, .datepicker table tr td.today.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.today, .open .dropdown-toggle.datepicker table tr td.today:hover, .open .dropdown-toggle.datepicker table tr td.today.disabled, .open .dropdown-toggle.datepicker table tr td.today.disabled:hover {
+    background-image: none;
+}
+.datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today.disabled.disabled, .datepicker table tr td.today.disabled.disabled:hover, .datepicker table tr td.today[disabled], .datepicker table tr td.today[disabled]:hover, .datepicker table tr td.today.disabled[disabled], .datepicker table tr td.today.disabled[disabled]:hover, fieldset[disabled] .datepicker table tr td.today, fieldset[disabled] .datepicker table tr td.today:hover, fieldset[disabled] .datepicker table tr td.today.disabled, fieldset[disabled] .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today.disabled:hover:hover, .datepicker table tr td.today.disabled.disabled:hover, .datepicker table tr td.today.disabled.disabled:hover:hover, .datepicker table tr td.today[disabled]:hover, .datepicker table tr td.today[disabled]:hover:hover, .datepicker table tr td.today.disabled[disabled]:hover, .datepicker table tr td.today.disabled[disabled]:hover:hover, fieldset[disabled] .datepicker table tr td.today:hover, fieldset[disabled] .datepicker table tr td.today:hover:hover, fieldset[disabled] .datepicker table tr td.today.disabled:hover, fieldset[disabled] .datepicker table tr td.today.disabled:hover:hover, .datepicker table tr td.today.disabled:focus, .datepicker table tr td.today.disabled:hover:focus, .datepicker table tr td.today.disabled.disabled:focus, .datepicker table tr td.today.disabled.disabled:hover:focus, .datepicker table tr td.today[disabled]:focus, .datepicker table tr td.today[disabled]:hover:focus, .datepicker table tr td.today.disabled[disabled]:focus, .datepicker table tr td.today.disabled[disabled]:hover:focus, fieldset[disabled] .datepicker table tr td.today:focus, fieldset[disabled] .datepicker table tr td.today:hover:focus, fieldset[disabled] .datepicker table tr td.today.disabled:focus, fieldset[disabled] .datepicker table tr td.today.disabled:hover:focus, .datepicker table tr td.today.disabled:active, .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today.disabled.disabled:active, .datepicker table tr td.today.disabled.disabled:hover:active, .datepicker table tr td.today[disabled]:active, .datepicker table tr td.today[disabled]:hover:active, .datepicker table tr td.today.disabled[disabled]:active, .datepicker table tr td.today.disabled[disabled]:hover:active, fieldset[disabled] .datepicker table tr td.today:active, fieldset[disabled] .datepicker table tr td.today:hover:active, fieldset[disabled] .datepicker table tr td.today.disabled:active, fieldset[disabled] .datepicker table tr td.today.disabled:hover:active, .datepicker table tr td.today.disabled.active, .datepicker table tr td.today.disabled.active:hover, .datepicker table tr td.today.disabled.disabled.active, .datepicker table tr td.today.disabled.disabled.active:hover, .datepicker table tr td.today.active[disabled], .datepicker table tr td.today.active[disabled]:hover, .datepicker table tr td.today.disabled.active[disabled], .datepicker table tr td.today.disabled.active[disabled]:hover, fieldset[disabled] .datepicker table tr td.today.active, fieldset[disabled] .datepicker table tr td.today.active:hover, fieldset[disabled] .datepicker table tr td.today.disabled.active, fieldset[disabled] .datepicker table tr td.today.disabled.active:hover {
+    background-color: #ffdb99;
+    border-color: #ffb733;
+}
+.datepicker table tr td.today:hover:hover {
+    color: #000;
+}
+.datepicker table tr td.today.active:hover {
+    color: #fff;
+}
+.datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+    border-radius: 0;
+}
+.datepicker table tr td.range.today, .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover {
+    background-color: #f7ca77;
+    border-color: #f1a417;
+    border-radius: 0;
+    color: #000000;
+}
+.datepicker table tr td.range.today:hover, .datepicker table tr td.range.today:hover:hover, .datepicker table tr td.range.today.disabled:hover, .datepicker table tr td.range.today.disabled:hover:hover, .datepicker table tr td.range.today:focus, .datepicker table tr td.range.today:hover:focus, .datepicker table tr td.range.today.disabled:focus, .datepicker table tr td.range.today.disabled:hover:focus, .datepicker table tr td.range.today:active, .datepicker table tr td.range.today:hover:active, .datepicker table tr td.range.today.disabled:active, .datepicker table tr td.range.today.disabled:hover:active, .datepicker table tr td.range.today.active, .datepicker table tr td.range.today.active:hover, .datepicker table tr td.range.today.disabled.active, .datepicker table tr td.range.today.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.range.today, .open .dropdown-toggle.datepicker table tr td.range.today:hover, .open .dropdown-toggle.datepicker table tr td.range.today.disabled, .open .dropdown-toggle.datepicker table tr td.range.today.disabled:hover {
+    background-color: #f4bb51;
+    border-color: #bf800c;
+    color: #000000;
+}
+.datepicker table tr td.range.today:active, .datepicker table tr td.range.today:hover:active, .datepicker table tr td.range.today.disabled:active, .datepicker table tr td.range.today.disabled:hover:active, .datepicker table tr td.range.today.active, .datepicker table tr td.range.today.active:hover, .datepicker table tr td.range.today.disabled.active, .datepicker table tr td.range.today.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.range.today, .open .dropdown-toggle.datepicker table tr td.range.today:hover, .open .dropdown-toggle.datepicker table tr td.range.today.disabled, .open .dropdown-toggle.datepicker table tr td.range.today.disabled:hover {
+    background-image: none;
+}
+.datepicker table tr td.range.today.disabled, .datepicker table tr td.range.today.disabled:hover, .datepicker table tr td.range.today.disabled.disabled, .datepicker table tr td.range.today.disabled.disabled:hover, .datepicker table tr td.range.today[disabled], .datepicker table tr td.range.today[disabled]:hover, .datepicker table tr td.range.today.disabled[disabled], .datepicker table tr td.range.today.disabled[disabled]:hover, fieldset[disabled] .datepicker table tr td.range.today, fieldset[disabled] .datepicker table tr td.range.today:hover, fieldset[disabled] .datepicker table tr td.range.today.disabled, fieldset[disabled] .datepicker table tr td.range.today.disabled:hover, .datepicker table tr td.range.today.disabled:hover, .datepicker table tr td.range.today.disabled:hover:hover, .datepicker table tr td.range.today.disabled.disabled:hover, .datepicker table tr td.range.today.disabled.disabled:hover:hover, .datepicker table tr td.range.today[disabled]:hover, .datepicker table tr td.range.today[disabled]:hover:hover, .datepicker table tr td.range.today.disabled[disabled]:hover, .datepicker table tr td.range.today.disabled[disabled]:hover:hover, fieldset[disabled] .datepicker table tr td.range.today:hover, fieldset[disabled] .datepicker table tr td.range.today:hover:hover, fieldset[disabled] .datepicker table tr td.range.today.disabled:hover, fieldset[disabled] .datepicker table tr td.range.today.disabled:hover:hover, .datepicker table tr td.range.today.disabled:focus, .datepicker table tr td.range.today.disabled:hover:focus, .datepicker table tr td.range.today.disabled.disabled:focus, .datepicker table tr td.range.today.disabled.disabled:hover:focus, .datepicker table tr td.range.today[disabled]:focus, .datepicker table tr td.range.today[disabled]:hover:focus, .datepicker table tr td.range.today.disabled[disabled]:focus, .datepicker table tr td.range.today.disabled[disabled]:hover:focus, fieldset[disabled] .datepicker table tr td.range.today:focus, fieldset[disabled] .datepicker table tr td.range.today:hover:focus, fieldset[disabled] .datepicker table tr td.range.today.disabled:focus, fieldset[disabled] .datepicker table tr td.range.today.disabled:hover:focus, .datepicker table tr td.range.today.disabled:active, .datepicker table tr td.range.today.disabled:hover:active, .datepicker table tr td.range.today.disabled.disabled:active, .datepicker table tr td.range.today.disabled.disabled:hover:active, .datepicker table tr td.range.today[disabled]:active, .datepicker table tr td.range.today[disabled]:hover:active, .datepicker table tr td.range.today.disabled[disabled]:active, .datepicker table tr td.range.today.disabled[disabled]:hover:active, fieldset[disabled] .datepicker table tr td.range.today:active, fieldset[disabled] .datepicker table tr td.range.today:hover:active, fieldset[disabled] .datepicker table tr td.range.today.disabled:active, fieldset[disabled] .datepicker table tr td.range.today.disabled:hover:active, .datepicker table tr td.range.today.disabled.active, .datepicker table tr td.range.today.disabled.active:hover, .datepicker table tr td.range.today.disabled.disabled.active, .datepicker table tr td.range.today.disabled.disabled.active:hover, .datepicker table tr td.range.today.active[disabled], .datepicker table tr td.range.today.active[disabled]:hover, .datepicker table tr td.range.today.disabled.active[disabled], .datepicker table tr td.range.today.disabled.active[disabled]:hover, fieldset[disabled] .datepicker table tr td.range.today.active, fieldset[disabled] .datepicker table tr td.range.today.active:hover, fieldset[disabled] .datepicker table tr td.range.today.disabled.active, fieldset[disabled] .datepicker table tr td.range.today.disabled.active:hover {
+    background-color: #f7ca77;
+    border-color: #f1a417;
+}
+.datepicker table tr td.selected, .datepicker table tr td.selected:hover, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover {
+    background-color: #999999;
+    border-color: #555555;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker table tr td.selected:hover, .datepicker table tr td.selected:hover:hover, .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected.disabled:hover:hover, .datepicker table tr td.selected:focus, .datepicker table tr td.selected:hover:focus, .datepicker table tr td.selected.disabled:focus, .datepicker table tr td.selected.disabled:hover:focus, .datepicker table tr td.selected:active, .datepicker table tr td.selected:hover:active, .datepicker table tr td.selected.disabled:active, .datepicker table tr td.selected.disabled:hover:active, .datepicker table tr td.selected.active, .datepicker table tr td.selected.active:hover, .datepicker table tr td.selected.disabled.active, .datepicker table tr td.selected.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.selected, .open .dropdown-toggle.datepicker table tr td.selected:hover, .open .dropdown-toggle.datepicker table tr td.selected.disabled, .open .dropdown-toggle.datepicker table tr td.selected.disabled:hover {
+    background-color: #858585;
+    border-color: #373737;
+    color: #ffffff;
+}
+.datepicker table tr td.selected:active, .datepicker table tr td.selected:hover:active, .datepicker table tr td.selected.disabled:active, .datepicker table tr td.selected.disabled:hover:active, .datepicker table tr td.selected.active, .datepicker table tr td.selected.active:hover, .datepicker table tr td.selected.disabled.active, .datepicker table tr td.selected.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.selected, .open .dropdown-toggle.datepicker table tr td.selected:hover, .open .dropdown-toggle.datepicker table tr td.selected.disabled, .open .dropdown-toggle.datepicker table tr td.selected.disabled:hover {
+    background-image: none;
+}
+.datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected.disabled.disabled, .datepicker table tr td.selected.disabled.disabled:hover, .datepicker table tr td.selected[disabled], .datepicker table tr td.selected[disabled]:hover, .datepicker table tr td.selected.disabled[disabled], .datepicker table tr td.selected.disabled[disabled]:hover, fieldset[disabled] .datepicker table tr td.selected, fieldset[disabled] .datepicker table tr td.selected:hover, fieldset[disabled] .datepicker table tr td.selected.disabled, fieldset[disabled] .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected.disabled:hover:hover, .datepicker table tr td.selected.disabled.disabled:hover, .datepicker table tr td.selected.disabled.disabled:hover:hover, .datepicker table tr td.selected[disabled]:hover, .datepicker table tr td.selected[disabled]:hover:hover, .datepicker table tr td.selected.disabled[disabled]:hover, .datepicker table tr td.selected.disabled[disabled]:hover:hover, fieldset[disabled] .datepicker table tr td.selected:hover, fieldset[disabled] .datepicker table tr td.selected:hover:hover, fieldset[disabled] .datepicker table tr td.selected.disabled:hover, fieldset[disabled] .datepicker table tr td.selected.disabled:hover:hover, .datepicker table tr td.selected.disabled:focus, .datepicker table tr td.selected.disabled:hover:focus, .datepicker table tr td.selected.disabled.disabled:focus, .datepicker table tr td.selected.disabled.disabled:hover:focus, .datepicker table tr td.selected[disabled]:focus, .datepicker table tr td.selected[disabled]:hover:focus, .datepicker table tr td.selected.disabled[disabled]:focus, .datepicker table tr td.selected.disabled[disabled]:hover:focus, fieldset[disabled] .datepicker table tr td.selected:focus, fieldset[disabled] .datepicker table tr td.selected:hover:focus, fieldset[disabled] .datepicker table tr td.selected.disabled:focus, fieldset[disabled] .datepicker table tr td.selected.disabled:hover:focus, .datepicker table tr td.selected.disabled:active, .datepicker table tr td.selected.disabled:hover:active, .datepicker table tr td.selected.disabled.disabled:active, .datepicker table tr td.selected.disabled.disabled:hover:active, .datepicker table tr td.selected[disabled]:active, .datepicker table tr td.selected[disabled]:hover:active, .datepicker table tr td.selected.disabled[disabled]:active, .datepicker table tr td.selected.disabled[disabled]:hover:active, fieldset[disabled] .datepicker table tr td.selected:active, fieldset[disabled] .datepicker table tr td.selected:hover:active, fieldset[disabled] .datepicker table tr td.selected.disabled:active, fieldset[disabled] .datepicker table tr td.selected.disabled:hover:active, .datepicker table tr td.selected.disabled.active, .datepicker table tr td.selected.disabled.active:hover, .datepicker table tr td.selected.disabled.disabled.active, .datepicker table tr td.selected.disabled.disabled.active:hover, .datepicker table tr td.selected.active[disabled], .datepicker table tr td.selected.active[disabled]:hover, .datepicker table tr td.selected.disabled.active[disabled], .datepicker table tr td.selected.disabled.active[disabled]:hover, fieldset[disabled] .datepicker table tr td.selected.active, fieldset[disabled] .datepicker table tr td.selected.active:hover, fieldset[disabled] .datepicker table tr td.selected.disabled.active, fieldset[disabled] .datepicker table tr td.selected.disabled.active:hover {
+    background-color: #999999;
+    border-color: #555555;
+}
+.datepicker table tr td.active, .datepicker table tr td.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover {
+    background-color: #428bca;
+    border-color: #357ebd;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker table tr td.active:hover, .datepicker table tr td.active:hover:hover, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active:focus, .datepicker table tr td.active:hover:focus, .datepicker table tr td.active.disabled:focus, .datepicker table tr td.active.disabled:hover:focus, .datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.active, .open .dropdown-toggle.datepicker table tr td.active:hover, .open .dropdown-toggle.datepicker table tr td.active.disabled, .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+    background-color: #3276b1;
+    border-color: #285e8e;
+    color: #ffffff;
+}
+.datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td.active, .open .dropdown-toggle.datepicker table tr td.active:hover, .open .dropdown-toggle.datepicker table tr td.active.disabled, .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+    background-image: none;
+}
+.datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled.disabled, .datepicker table tr td.active.disabled.disabled:hover, .datepicker table tr td.active[disabled], .datepicker table tr td.active[disabled]:hover, .datepicker table tr td.active.disabled[disabled], .datepicker table tr td.active.disabled[disabled]:hover, fieldset[disabled] .datepicker table tr td.active, fieldset[disabled] .datepicker table tr td.active:hover, fieldset[disabled] .datepicker table tr td.active.disabled, fieldset[disabled] .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active.disabled.disabled:hover, .datepicker table tr td.active.disabled.disabled:hover:hover, .datepicker table tr td.active[disabled]:hover, .datepicker table tr td.active[disabled]:hover:hover, .datepicker table tr td.active.disabled[disabled]:hover, .datepicker table tr td.active.disabled[disabled]:hover:hover, fieldset[disabled] .datepicker table tr td.active:hover, fieldset[disabled] .datepicker table tr td.active:hover:hover, fieldset[disabled] .datepicker table tr td.active.disabled:hover, fieldset[disabled] .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active.disabled:focus, .datepicker table tr td.active.disabled:hover:focus, .datepicker table tr td.active.disabled.disabled:focus, .datepicker table tr td.active.disabled.disabled:hover:focus, .datepicker table tr td.active[disabled]:focus, .datepicker table tr td.active[disabled]:hover:focus, .datepicker table tr td.active.disabled[disabled]:focus, .datepicker table tr td.active.disabled[disabled]:hover:focus, fieldset[disabled] .datepicker table tr td.active:focus, fieldset[disabled] .datepicker table tr td.active:hover:focus, fieldset[disabled] .datepicker table tr td.active.disabled:focus, fieldset[disabled] .datepicker table tr td.active.disabled:hover:focus, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.disabled.disabled:active, .datepicker table tr td.active.disabled.disabled:hover:active, .datepicker table tr td.active[disabled]:active, .datepicker table tr td.active[disabled]:hover:active, .datepicker table tr td.active.disabled[disabled]:active, .datepicker table tr td.active.disabled[disabled]:hover:active, fieldset[disabled] .datepicker table tr td.active:active, fieldset[disabled] .datepicker table tr td.active:hover:active, fieldset[disabled] .datepicker table tr td.active.disabled:active, fieldset[disabled] .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled.active:hover, .datepicker table tr td.active.disabled.disabled.active, .datepicker table tr td.active.disabled.disabled.active:hover, .datepicker table tr td.active.active[disabled], .datepicker table tr td.active.active[disabled]:hover, .datepicker table tr td.active.disabled.active[disabled], .datepicker table tr td.active.disabled.active[disabled]:hover, fieldset[disabled] .datepicker table tr td.active.active, fieldset[disabled] .datepicker table tr td.active.active:hover, fieldset[disabled] .datepicker table tr td.active.disabled.active, fieldset[disabled] .datepicker table tr td.active.disabled.active:hover {
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+.datepicker table tr td span {
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 54px;
+    line-height: 54px;
+    margin: 1%;
+    width: 23%;
+}
+.datepicker table tr td span:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+}
+.datepicker table tr td span.disabled, .datepicker table tr td span.disabled:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #999999;
+    cursor: default;
+}
+.datepicker table tr td span.active, .datepicker table tr td span.active:hover, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover {
+    background-color: #428bca;
+    border-color: #357ebd;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker table tr td span.active:hover, .datepicker table tr td span.active:hover:hover, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active:focus, .datepicker table tr td span.active:hover:focus, .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active.disabled:hover:focus, .datepicker table tr td span.active:active, .datepicker table tr td span.active:hover:active, .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.active, .datepicker table tr td span.active.active:hover, .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td span.active, .open .dropdown-toggle.datepicker table tr td span.active:hover, .open .dropdown-toggle.datepicker table tr td span.active.disabled, .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+    background-color: #3276b1;
+    border-color: #285e8e;
+    color: #ffffff;
+}
+.datepicker table tr td span.active:active, .datepicker table tr td span.active:hover:active, .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.active, .datepicker table tr td span.active.active:hover, .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled.active:hover, .open .dropdown-toggle.datepicker table tr td span.active, .open .dropdown-toggle.datepicker table tr td span.active:hover, .open .dropdown-toggle.datepicker table tr td span.active.disabled, .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+    background-image: none;
+}
+.datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled.disabled, .datepicker table tr td span.active.disabled.disabled:hover, .datepicker table tr td span.active[disabled], .datepicker table tr td span.active[disabled]:hover, .datepicker table tr td span.active.disabled[disabled], .datepicker table tr td span.active.disabled[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active, fieldset[disabled] .datepicker table tr td span.active:hover, fieldset[disabled] .datepicker table tr td span.active.disabled, fieldset[disabled] .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active.disabled.disabled:hover, .datepicker table tr td span.active.disabled.disabled:hover:hover, .datepicker table tr td span.active[disabled]:hover, .datepicker table tr td span.active[disabled]:hover:hover, .datepicker table tr td span.active.disabled[disabled]:hover, .datepicker table tr td span.active.disabled[disabled]:hover:hover, fieldset[disabled] .datepicker table tr td span.active:hover, fieldset[disabled] .datepicker table tr td span.active:hover:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active.disabled:hover:focus, .datepicker table tr td span.active.disabled.disabled:focus, .datepicker table tr td span.active.disabled.disabled:hover:focus, .datepicker table tr td span.active[disabled]:focus, .datepicker table tr td span.active[disabled]:hover:focus, .datepicker table tr td span.active.disabled[disabled]:focus, .datepicker table tr td span.active.disabled[disabled]:hover:focus, fieldset[disabled] .datepicker table tr td span.active:focus, fieldset[disabled] .datepicker table tr td span.active:hover:focus, fieldset[disabled] .datepicker table tr td span.active.disabled:focus, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:focus, .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.disabled.disabled:active, .datepicker table tr td span.active.disabled.disabled:hover:active, .datepicker table tr td span.active[disabled]:active, .datepicker table tr td span.active[disabled]:hover:active, .datepicker table tr td span.active.disabled[disabled]:active, .datepicker table tr td span.active.disabled[disabled]:hover:active, fieldset[disabled] .datepicker table tr td span.active:active, fieldset[disabled] .datepicker table tr td span.active:hover:active, fieldset[disabled] .datepicker table tr td span.active.disabled:active, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:active, .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled.active:hover, .datepicker table tr td span.active.disabled.disabled.active, .datepicker table tr td span.active.disabled.disabled.active:hover, .datepicker table tr td span.active.active[disabled], .datepicker table tr td span.active.active[disabled]:hover, .datepicker table tr td span.active.disabled.active[disabled], .datepicker table tr td span.active.disabled.active[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active.active, fieldset[disabled] .datepicker table tr td span.active.active:hover, fieldset[disabled] .datepicker table tr td span.active.disabled.active, fieldset[disabled] .datepicker table tr td span.active.disabled.active:hover {
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+.datepicker table tr td span.old, .datepicker table tr td span.new {
+    color: #999999;
+}
+.datepicker th.datepicker-switch {
+    width: 145px;
+}
+.datepicker thead tr:first-child th, .datepicker tfoot tr th {
+    cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+}
+.datepicker .cw {
+    font-size: 10px;
+    padding: 0 2px 0 5px;
+    vertical-align: middle;
+    width: 12px;
+}
+.datepicker thead tr:first-child th.cw {
+    background-color: transparent;
+    cursor: default;
+}
+.input-group.date .input-group-addon i {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+}
+.input-daterange input {
+    text-align: center;
+}
+.input-daterange input:first-child {
+    border-radius: 3px 0 0 3px;
+}
+.input-daterange input:last-child {
+    border-radius: 0 3px 3px 0;
+}
+.input-daterange .input-group-addon {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #eeeeee;
+    border-color: #cccccc;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-left: -5px;
+    margin-right: -5px;
+    min-width: 16px;
+    padding: 4px 5px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    vertical-align: middle;
+    width: auto;
+}
+.datepicker.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    display: none;
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    left: 0;
+    line-height: 1.42857;
+    list-style: outside none none;
+    min-width: 160px;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+.datepicker.dropdown-menu th, .datepicker.dropdown-menu td {
+    padding: 4px 5px;
+}
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+.avatar .avatar-image, .avatar .avatar-initials {
+    height: 100%;
+    width: 100%;
+}
+.avatar .avatar-initials {
+    background-color: #aaa;
+    background-size: 100% 100%;
+    color: #fff;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,sans-serif;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+}
+.avatar-large {
+    height: 80px;
+    width: 80px;
+}
+.avatar-large .avatar-initials {
+    font-size: 40px;
+    line-height: 80px;
+}
+.avatar-small {
+    height: 30px;
+    width: 30px;
+}
+.avatar-small .avatar-initials {
+    font-size: 15px;
+    line-height: 30px;
+}
+.avatar-extra-small {
+    height: 20px;
+    width: 20px;
+}
+.avatar-extra-small .avatar-initials {
+    font-size: 10px;
+    line-height: 20px;
+}
+.avatar-rounded .avatar-image, .avatar-rounded .avatar-initials {
+    border-radius: 5px;
+}
+.avatar-circle .avatar-image, .avatar-circle .avatar-initials {
+    border-radius: 50%;
+}
+.avatar-hide-image .avatar-image {
+    display: none;
+}
+.avatar-hide-initials .avatar-initials {
+    display: none;
+}
+#at-facebook {
+    background: none repeat scroll 0 0 #3b5998;
+    color: #fff;
+}
+#at-facebook.disabled {
+    background: none repeat scroll 0 0 #666666;
+    color: #ddd;
+}
+#at-facebook:hover {
+    background: none repeat scroll 0 0 #2c4780;
+}
+#at-linkedin {
+    background: none repeat scroll 0 0 #338ab0;
+    color: #fff;
+}
+#at-linkedin.disabled {
+    background: none repeat scroll 0 0 #666666;
+    color: #ddd;
+}
+#at-linkedin:hover {
+    background: none repeat scroll 0 0 #0571a6;
+}
+#at-twitter {
+    background: none repeat scroll 0 0 #4099ff;
+    color: #fff;
+}
+#at-twitter.disabled {
+    background: none repeat scroll 0 0 #666666;
+    color: #ddd;
+}
+#at-twitter:hover {
+    background: none repeat scroll 0 0 #3288eb;
+}
+#at-google {
+    background: none repeat scroll 0 0 #db5a3c;
+    color: #fff;
+}
+#at-google.disabled {
+    background: none repeat scroll 0 0 #666666;
+    color: #ddd;
+}
+#at-google:hover {
+    background: none repeat scroll 0 0 #ca4c2e;
+}
+#at-github {
+    background: none repeat scroll 0 0 #666;
+    color: #fff;
+}
+#at-github.disabled {
+    background: none repeat scroll 0 0 #666666;
+    color: #ddd;
+}
+#at-github:hover {
+    background: none repeat scroll 0 0 #555;
+}
+.at-input.validating * {
+    cursor: progress;
+}
+.bootstrap-datetimepicker-widget {
+    border-radius: 4px;
+    left: 0;
+    margin-top: 1px;
+    padding: 4px;
+    top: 0;
+    width: 250px;
+    z-index: 99999 !important;
+}
+.bootstrap-datetimepicker-widget.timepicker-sbs {
+    width: 600px;
+}
+.bootstrap-datetimepicker-widget.bottom:before {
+    border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    content: "";
+    display: inline-block;
+    left: 7px;
+    position: absolute;
+    top: -7px;
+}
+.bootstrap-datetimepicker-widget.bottom:after {
+    border-bottom: 6px solid white;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: inline-block;
+    left: 8px;
+    position: absolute;
+    top: -6px;
+}
+.bootstrap-datetimepicker-widget.top:before {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid rgba(0, 0, 0, 0.2);
+    bottom: -7px;
+    content: "";
+    display: inline-block;
+    left: 6px;
+    position: absolute;
+}
+.bootstrap-datetimepicker-widget.top:after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid white;
+    bottom: -6px;
+    content: "";
+    display: inline-block;
+    left: 7px;
+    position: absolute;
+}
+.bootstrap-datetimepicker-widget .dow {
+    width: 14.2857%;
+}
+.bootstrap-datetimepicker-widget.pull-right:before {
+    left: auto;
+    right: 6px;
+}
+.bootstrap-datetimepicker-widget.pull-right:after {
+    left: auto;
+    right: 7px;
+}
+.bootstrap-datetimepicker-widget > ul {
+    list-style-type: none;
+    margin: 0;
+}
+.bootstrap-datetimepicker-widget a[data-action] {
+    padding: 6px 0;
+}
+.bootstrap-datetimepicker-widget a[data-action]:active {
+    box-shadow: none;
+}
+.bootstrap-datetimepicker-widget .timepicker-hour, .bootstrap-datetimepicker-widget .timepicker-minute, .bootstrap-datetimepicker-widget .timepicker-second {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    width: 54px;
+}
+.bootstrap-datetimepicker-widget button[data-action] {
+    padding: 6px;
+}
+.bootstrap-datetimepicker-widget table[data-hour-format="12"] .separator {
+    margin: 0;
+    padding: 0;
+    width: 4px;
+}
+.bootstrap-datetimepicker-widget .datepicker > div {
+    display: none;
+}
+.bootstrap-datetimepicker-widget .picker-switch {
+    text-align: center;
+}
+.bootstrap-datetimepicker-widget table {
+    margin: 0;
+    width: 100%;
+}
+.bootstrap-datetimepicker-widget td, .bootstrap-datetimepicker-widget th {
+    border-radius: 4px;
+    text-align: center;
+}
+.bootstrap-datetimepicker-widget td {
+    height: 54px;
+    line-height: 54px;
+    width: 54px;
+}
+.bootstrap-datetimepicker-widget td.cw {
+    color: #777777;
+    font-size: 10px;
+    height: 20px;
+    line-height: 20px;
+}
+.bootstrap-datetimepicker-widget td.day {
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+}
+.bootstrap-datetimepicker-widget td.day:hover, .bootstrap-datetimepicker-widget td.hour:hover, .bootstrap-datetimepicker-widget td.minute:hover, .bootstrap-datetimepicker-widget td.second:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+    cursor: pointer;
+}
+.bootstrap-datetimepicker-widget td.old, .bootstrap-datetimepicker-widget td.new {
+    color: #777777;
+}
+.bootstrap-datetimepicker-widget td.today {
+    position: relative;
+}
+.bootstrap-datetimepicker-widget td.today:before {
+    border-bottom: 7px solid #428bca;
+    border-left: 7px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.2);
+    bottom: 4px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 4px;
+}
+.bootstrap-datetimepicker-widget td.active, .bootstrap-datetimepicker-widget td.active:hover {
+    background-color: #428bca;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget td.active.today:before {
+    border-bottom-color: #fff;
+}
+.bootstrap-datetimepicker-widget td.disabled, .bootstrap-datetimepicker-widget td.disabled:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #777777;
+    cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget td span {
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    height: 54px;
+    line-height: 54px;
+    margin: 2px 1.5px;
+    width: 54px;
+}
+.bootstrap-datetimepicker-widget td span:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+}
+.bootstrap-datetimepicker-widget td span.active {
+    background-color: #428bca;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget td span.old {
+    color: #777777;
+}
+.bootstrap-datetimepicker-widget td span.disabled, .bootstrap-datetimepicker-widget td span.disabled:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #777777;
+    cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget th {
+    height: 20px;
+    line-height: 20px;
+    width: 20px;
+}
+.bootstrap-datetimepicker-widget th.picker-switch {
+    width: 145px;
+}
+.bootstrap-datetimepicker-widget th.next, .bootstrap-datetimepicker-widget th.prev {
+    font-size: 21px;
+}
+.bootstrap-datetimepicker-widget th.disabled, .bootstrap-datetimepicker-widget th.disabled:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #777777;
+    cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget thead tr:first-child th {
+    cursor: pointer;
+}
+.bootstrap-datetimepicker-widget thead tr:first-child th:hover {
+    background: none repeat scroll 0 0 #eeeeee;
+}
+.input-group.date .input-group-addon span {
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.bootstrap-datetimepicker-widget.left-oriented:before {
+    left: auto;
+    right: 6px;
+}
+.bootstrap-datetimepicker-widget.left-oriented:after {
+    left: auto;
+    right: 7px;
+}
+.bootstrap-datetimepicker-widget ul.list-unstyled li div.timepicker div.timepicker-picker table.table-condensed tbody > tr > td {
+    padding: 0 !important;
+}
+@media screen and (max-width: 767px) {
+.bootstrap-datetimepicker-widget.timepicker-sbs {
+    width: 283px;
+}
+}
+body .bootstrap-datetimepicker-widget {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: none;
+    font-size: 13px;
+    width: auto;
+}
+body .bootstrap-datetimepicker-widget .collapse {
+    display: none;
+}
+body .bootstrap-datetimepicker-widget .collapse.in {
+    display: block;
+}
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url("/packages/telescope-datetimepicker/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/packages/telescope-datetimepicker/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/packages/telescope-datetimepicker/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/packages/telescope-datetimepicker/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
+.glyphicon {
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    top: 1px;
+}
+.glyphicon-chevron-left:before {
+    content: "";
+}
+.glyphicon-chevron-right:before {
+    content: "";
+}
+.glyphicon-chevron-up:before {
+    content: "";
+}
+.glyphicon-chevron-down:before {
+    content: "";
+}
+.glyphicon-time:before {
+    content: "";
+}
+.glyphicon-calendar:before {
+    content: "";
+}
+.popover {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #dd3416;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0s ease 0s, all 300ms ease 0s;
+    z-index: 100;
+}
+.has-shadow {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+.cf {
+}
+.cf:before, .cf:after {
+    content: "";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+form.form-block, .accounts-dialog.form-block {
+    background: none repeat scroll 0 0 #e7eff2;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+form > div, .accounts-dialog > div {
+}
+form > div:before, form > div:after, .accounts-dialog > div:before, .accounts-dialog > div:after {
+    content: "";
+    display: table;
+}
+form > div:after, .accounts-dialog > div:after {
+    clear: both;
+}
+form .control-group, form .form-group, form .at-input, .accounts-dialog .control-group, .accounts-dialog .form-group, .accounts-dialog .at-input {
+    margin-bottom: 15px;
+}
+form .control-group:before, form .control-group:after, form .form-group:before, form .form-group:after, form .at-input:before, form .at-input:after, .accounts-dialog .control-group:before, .accounts-dialog .control-group:after, .accounts-dialog .form-group:before, .accounts-dialog .form-group:after, .accounts-dialog .at-input:before, .accounts-dialog .at-input:after {
+    content: "";
+    display: table;
+}
+form .control-group:after, form .form-group:after, form .at-input:after, .accounts-dialog .control-group:after, .accounts-dialog .form-group:after, .accounts-dialog .at-input:after {
+    clear: both;
+}
+form .control-group > label, form .form-group > label, form .at-input > label, .accounts-dialog .control-group > label, .accounts-dialog .form-group > label, .accounts-dialog .at-input > label {
+    display: block;
+    font-weight: bold;
+}
+@media screen and (max-width: 40em) {
+form .control-group > label, form .form-group > label, form .at-input > label, .accounts-dialog .control-group > label, .accounts-dialog .form-group > label, .accounts-dialog .at-input > label {
+    margin-bottom: 5px;
+}
+}
+@media screen and (min-width: 40em) {
+form .control-group > label, form .form-group > label, form .at-input > label, .accounts-dialog .control-group > label, .accounts-dialog .form-group > label, .accounts-dialog .at-input > label {
+    float: left;
+    margin-right: 10px;
+}
+}
+form .control-group .controls, form .form-group .controls, form .at-input .controls, .accounts-dialog .control-group .controls, .accounts-dialog .form-group .controls, .accounts-dialog .at-input .controls {
+    position: relative;
+}
+@media screen and (min-width: 40em) {
+form .control-group .controls, form .form-group .controls, form .at-input .controls, .accounts-dialog .control-group .controls, .accounts-dialog .form-group .controls, .accounts-dialog .at-input .controls {
+    margin-left: 200px;
+}
+}
+form .control-group .controls .inline-link, form .form-group .controls .inline-link, form .at-input .controls .inline-link, .accounts-dialog .control-group .controls .inline-link, .accounts-dialog .form-group .controls .inline-link, .accounts-dialog .at-input .controls .inline-link {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 2px;
+}
+form .control-group .controls .inline-link.loading, form .form-group .controls .inline-link.loading, form .at-input .controls .inline-link.loading, .accounts-dialog .control-group .controls .inline-link.loading, .accounts-dialog .form-group .controls .inline-link.loading, .accounts-dialog .at-input .controls .inline-link.loading {
+    background: url("/img/loading.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+    color: transparent;
+    font: 0px/0 a;
+    height: 22px;
+    text-shadow: none;
+    width: 18px;
+}
+form .control-group .controls label, form .form-group .controls label, form .at-input .controls label, .accounts-dialog .control-group .controls label, .accounts-dialog .form-group .controls label, .accounts-dialog .at-input .controls label {
+    display: block;
+    margin-bottom: 5px;
+}
+form .control-group .controls label.inline, form .form-group .controls label.inline, form .at-input .controls label.inline, .accounts-dialog .control-group .controls label.inline, .accounts-dialog .form-group .controls label.inline, .accounts-dialog .at-input .controls label.inline {
+    display: inline-block;
+    margin-bottom: 0;
+}
+form .control-group.inline, form .form-group.inline, form .at-input.inline, .accounts-dialog .control-group.inline, .accounts-dialog .form-group.inline, .accounts-dialog .at-input.inline {
+    margin-bottom: 10px;
+}
+form .control-group.inline .controls, form .form-group.inline .controls, form .at-input.inline .controls, .accounts-dialog .control-group.inline .controls, .accounts-dialog .form-group.inline .controls, .accounts-dialog .at-input.inline .controls {
+    float: left;
+    margin-left: 0;
+    width: 80%;
+}
+form .control-group.inline .submit, form .form-group.inline .submit, form .at-input.inline .submit, .accounts-dialog .control-group.inline .submit, .accounts-dialog .form-group.inline .submit, .accounts-dialog .at-input.inline .submit {
+    float: right;
+}
+form .form-actions, form .form-group, .accounts-dialog .form-actions, .accounts-dialog .form-group {
+}
+form .form-actions:before, form .form-actions:after, form .form-group:before, form .form-group:after, .accounts-dialog .form-actions:before, .accounts-dialog .form-actions:after, .accounts-dialog .form-group:before, .accounts-dialog .form-group:after {
+    content: "";
+    display: table;
+}
+form .form-actions:after, form .form-group:after, .accounts-dialog .form-actions:after, .accounts-dialog .form-group:after {
+    clear: both;
+}
+form .form-actions a, form .form-group a, .accounts-dialog .form-actions a, .accounts-dialog .form-group a {
+    display: block;
+    float: left;
+}
+form .form-actions .button, form .form-actions .btn, form .form-group .button, form .form-group .btn, .accounts-dialog .form-actions .button, .accounts-dialog .form-actions .btn, .accounts-dialog .form-group .button, .accounts-dialog .form-group .btn {
+    float: right;
+}
+form input[type="text"], form input[type="password"], form input[type="number"], form input[type="email"], form textarea, form .login-form input, .accounts-dialog input[type="text"], .accounts-dialog input[type="password"], .accounts-dialog input[type="number"], .accounts-dialog input[type="email"], .accounts-dialog textarea, .accounts-dialog .login-form input {
+    border: 1px solid #b5b0b0;
+    box-sizing: border-box;
+    display: block;
+    font-size: 14px;
+    padding: 5px 6px;
+    width: 100%;
+}
+form input[type="text"]:focus, form input[type="password"]:focus, form input[type="number"]:focus, form input[type="email"]:focus, form textarea:focus, form .login-form input:focus, .accounts-dialog input[type="text"]:focus, .accounts-dialog input[type="password"]:focus, .accounts-dialog input[type="number"]:focus, .accounts-dialog input[type="email"]:focus, .accounts-dialog textarea:focus, .accounts-dialog .login-form input:focus {
+    border-color: #dd3416;
+    box-shadow: 0 0 5px 0 rgba(221, 52, 22, 0.3);
+    outline: medium none;
+}
+form input[type="text"][type="number"], form input[type="password"][type="number"], form input[type="number"][type="number"], form input[type="email"][type="number"], form textarea[type="number"], form .login-form input[type="number"], .accounts-dialog input[type="text"][type="number"], .accounts-dialog input[type="password"][type="number"], .accounts-dialog input[type="number"][type="number"], .accounts-dialog input[type="email"][type="number"], .accounts-dialog textarea[type="number"], .accounts-dialog .login-form input[type="number"] {
+    width: 30%;
+}
+form input[type="text"]:disabled, form input[type="password"]:disabled, form input[type="number"]:disabled, form input[type="email"]:disabled, form textarea:disabled, form .login-form input:disabled, .accounts-dialog input[type="text"]:disabled, .accounts-dialog input[type="password"]:disabled, .accounts-dialog input[type="number"]:disabled, .accounts-dialog input[type="email"]:disabled, .accounts-dialog textarea:disabled, .accounts-dialog .login-form input:disabled {
+    background: none repeat scroll 0 0 #eee;
+    color: #b3c1c6;
+}
+form input[type="text"], form input[type="password"], form input[type="number"], form .login-form input, .accounts-dialog input[type="text"], .accounts-dialog input[type="password"], .accounts-dialog input[type="number"], .accounts-dialog .login-form input {
+    height: 30px;
+    line-height: 20px;
+}
+form input[disabled="disabled"], .accounts-dialog input[disabled="disabled"] {
+    background: none repeat scroll 0 0 #e7eff2;
+    color: #b3c1c6;
+}
+form textarea, .accounts-dialog textarea {
+    line-height: 1.4;
+    min-height: 50px;
+}
+form .note, .accounts-dialog .note {
+    color: #b3c1c6;
+    font-size: 80%;
+    padding: 5px 0;
+}
+input[type="submit"], button, .button, .btn {
+    border: medium none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+    max-width: 300px;
+    padding: 10px 12px;
+    text-align: center;
+}
+input.disabled[type="submit"], input.loading[type="submit"], button.disabled, button.loading, .button.disabled, .button.loading, .btn.disabled, .btn.loading {
+    background: none repeat scroll 0 0 #dfdbdb !important;
+    color: #a4a9ab;
+    pointer-events: none;
+}
+input.inline[type="submit"], button.inline, .button.inline, .btn.inline {
+    display: inline-block;
+}
+input.btn-primary[type="submit"], input.submit[type="submit"], button.btn-primary, button.submit, .button.btn-primary, .button.submit, .btn.btn-primary, .btn.submit {
+    background: none repeat scroll 0 0 #dd3416;
+}
+input.btn-primary[type="submit"]:link, input.btn-primary[type="submit"]:hover, input.btn-primary[type="submit"]:active, input.btn-primary[type="submit"]:visited, input.submit[type="submit"]:link, input.submit[type="submit"]:hover, input.submit[type="submit"]:active, input.submit[type="submit"]:visited, button.btn-primary:link, button.btn-primary:hover, button.btn-primary:active, button.btn-primary:visited, button.submit:link, button.submit:hover, button.submit:active, button.submit:visited, .button.btn-primary:link, .button.btn-primary:hover, .button.btn-primary:active, .button.btn-primary:visited, .button.submit:link, .button.submit:hover, .button.submit:active, .button.submit:visited, .btn.btn-primary:link, .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:visited, .btn.submit:link, .btn.submit:hover, .btn.submit:active, .btn.submit:visited {
+    color: white;
+}
+input.loading[type="submit"], button.loading, .button.loading, .btn.loading {
+    color: #dfdbdb !important;
+    position: relative;
+}
+input.loading[type="submit"]:after, button.loading:after, .button.loading:after, .btn.loading:after {
+    background: url("/img/loading.svg") repeat scroll 0 0 / 20px 20px rgba(0, 0, 0, 0);
+    content: " ";
+    display: block;
+    height: 20px;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+}
+input[type="search"] {
+    font-size: 14px;
+}
+.twitter-signup {
+    border-bottom: 1px solid #dfdbdb;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.twitter-signup .twitter-button {
+    background: none repeat scroll 0 0 #00aced;
+}
+.category-slug {
+    display: block;
+    float: left;
+    font-size: 12px;
+    width: 80%;
+}
+.ui-autocomplete {
+    background: none repeat scroll 0 0 white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    padding: 10px;
+    width: 200px !important;
+}
+.help-block {
+    color: #b3c1c6;
+    margin-bottom: 15px;
+}
+#editor > iframe {
+    border: 1px solid #b5b0b0;
+}
+.comment-field {
+    margin-bottom: 10px;
+}
+.fieldset-heading {
+    border-bottom: 1px solid #b5b0b0;
+    color: #b3c1c6;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+fieldset {
+    margin-bottom: 30px;
+}
+.instructions-block {
+    color: #b3c1c6;
+    display: block;
+    font-size: 80%;
+    margin-top: 5px;
+}
+.private-field {
+    color: #dd3416;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.finish-signup-message {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
+a, a:link, a:visited, a:active {
+    color: #1abb9c;
+    font-size: 12px;
+    font-weight: normal;
+}
+a:hover {
+    color: #dd3416;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+.overlay {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+}
+#spinner {
+    margin: 100px 0;
+}
+.debug {
+    display: none;
+}
+.footer {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    padding: 10px 0 70px;
+    text-align: center;
+}
+.footer.absolute {
+    position: absolute;
+}
+#login-buttons .loading {
+    display: none;
+}
+#loading, .loading-page {
+    height: 300px;
+}
+.notifications-toggle {
+    background: none repeat scroll 0 0 white;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+.search-date-header {
+    background: none repeat scroll 0 0 #e7eff2;
+}
+.search-date-header th {
+}
+.search-date-header th:before, .search-date-header th:after {
+    content: "";
+    display: table;
+}
+.search-date-header th:after {
+    clear: both;
+}
+.search-date-header .search-date {
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+.search-date-header .search-count {
+    display: block;
+    float: right;
+    font-size: 13px;
+}
+.markdown img {
+    max-width: 100%;
+}
+.markdown ul, .markdown ol, .markdown p, .markdown pre, .markdown blockquote, .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+.markdown ul:last-child, .markdown ol:last-child, .markdown p:last-child, .markdown pre:last-child, .markdown blockquote:last-child, .markdown h1:last-child, .markdown h2:last-child, .markdown h3:last-child, .markdown h4:last-child, .markdown h5:last-child {
+    margin-bottom: 0;
+}
+.markdown strong {
+    font-weight: bold;
+}
+.markdown em {
+    font-style: italic;
+}
+.markdown ul, .markdown ol {
+    padding-left: 18px;
+}
+.markdown ul {
+    list-style-type: disc;
+}
+.markdown ol {
+    list-style-type: decimal;
+}
+.markdown a:link, .markdown a:visited, .markdown a:active {
+    color: #7ac0e4;
+}
+.markdown a:hover {
+    color: #dd3416;
+}
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
+    font-weight: bold;
+}
+.markdown h1 {
+    font-size: 36px;
+}
+.markdown h2 {
+    font-size: 24px;
+}
+.markdown h3 {
+    font-size: 18px;
+}
+.markdown h4 {
+    font-size: 16px;
+}
+.markdown h5 {
+    font-size: 14px;
+}
+.markdown code {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: monospace;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+.markdown pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    overflow-x: scroll;
+    padding: 20px;
+}
+.markdown pre code {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+}
+.markdown blockquote {
+    border-left: 3px solid #eee;
+    padding-left: 20px;
+}
+table {
+    width: 100%;
+}
+table tr {
+    border-bottom: 1px solid #eee;
+}
+table tr td, table tr th {
+    padding: 10px;
+    vertical-align: middle;
+}
+table thead tr td, table thead tr th {
+    font-weight: bold;
+}
+html, body, input, button {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h1, h2, h3, h4, h5, ul, ol, li, p, pre, div {
+    line-height: 1.5;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 16px;
+}
+li {
+    margin: 0 0 10px;
+}
+.important {
+    color: #dd3416;
+}
+.avatar-xsmall .avatar-initials {
+    font-size: 12px;
+    line-height: 20px;
+}
+.avatar-small {
+    height: 24px;
+    width: 24px;
+}
+.avatar-small .avatar-initials {
+    font-size: 13px;
+    line-height: 24px;
+}
+.user-avatar .avatar-initials {
+    line-height: 30px;
+}
+.has-dropdown .dropdown {
+    position: relative;
+}
+.has-dropdown .dropdown > a:after {
+    content: "▼";
+    display: inline-block;
+    font-size: 8px;
+    margin-left: 4px;
+    position: relative;
+    top: -1px;
+}
+.has-dropdown .dropdown:hover .dropdown-menu {
+    display: block;
+}
+.has-dropdown .dropdown-menu {
+    display: none;
+    left: 10px;
+    padding-top: 20px;
+    position: absolute;
+    top: 10px;
+    z-index: 10000;
+}
+.has-dropdown .dropdown-menu, .has-dropdown .dropdown-menu a, .has-dropdown .dropdown-menu a:link, .has-dropdown .dropdown-menu a:visited {
+    color: #444444;
+}
+.has-dropdown .dropdown-menu a.button {
+    color: white;
+}
+.has-dropdown .dropdown-menu ul {
+    background: none repeat scroll 0 0 white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    list-style-type: none;
+    min-width: 180px;
+    padding: 10px;
+}
+.has-dropdown .dropdown-menu ul li {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.has-dropdown .dropdown-menu ul li:last-child {
+    border-bottom: medium none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.has-dropdown .dropdown-menu ul li a {
+    font-size: 14px;
+}
+.has-dropdown .dropdown-menu ul li .menu-label {
+    display: block;
+}
+.has-dropdown .dropdown-menu ul li .menu-description {
+    color: #a4a9ab;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 2px;
+}
+.error, .at-error {
+    background: none repeat scroll 0 0 #dd3416;
+    color: white;
+}
+.header {
+    background: none repeat scroll 0 0 #444444;
+    color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+@media screen and (max-width: 40em) {
+.header {
+    height: 50px;
+    padding: 10px;
+    position: relative;
+}
+}
+.header a, .header a:link, .header a:visited {
+    color: inherit;
+}
+.header a.button, .header a.button:link, .header a.button:visited {
+    color: white;
+}
+.header .nav {
+    list-style-type: none;
+}
+.header .nav > li {
+    display: inline-block;
+    margin-bottom: 0;
+}
+.header .nav > li:last-child .header-submodule {
+    margin-right: 0;
+}
+.header-module, .header-submodule {
+    display: inline-block;
+    margin-right: 20px;
+}
+.header-module:last-child {
+    margin-right: 0;
+}
+.logo {
+    line-height: 1;
+    padding: 0 60px;
+    vertical-align: middle;
+}
+@media screen and (max-width: 40em) {
+.logo {
+    margin-right: 0;
+}
+.logo a {
+    display: block;
+    font-size: 24px;
+    height: 50px;
+    left: 0;
+    line-height: 50px;
+    margin-right: 0;
+    position: static;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+}
+.logo-image a, .logo-image img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.mobile-menu-button {
+    display: inline-block;
+    margin-top: -17px;
+    padding: 4px;
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+}
+.mobile-menu-button .hamburger {
+    fill: white;
+}
+.account-link {
+    display: inline-block;
+}
+.sign-in {
+    margin-right: 20px;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+html, body, .outer-wrapper {
+    height: 100%;
+}
+body {
+    background: none repeat scroll 0 0 #eee;
+    font-size: 14px;
+}
+@media screen and (max-width: 40em) {
+body {
+    overflow-x: hidden;
+}
+}
+.outer-wrapper {
+    position: relative;
+}
+.content-wrapper {
+    padding-bottom: 20px;
+}
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 10px;
+}
+@media screen and (max-width: 40em) {
+.content-wrapper {
+    overflow: hidden;
+}
+}
+.grid-module, .at-form {
+    background: none repeat scroll 0 0 white;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+.loading-module {
+    height: 70px;
+    position: relative;
+}
+@media screen and (min-width: 40em) {
+.mobile-only {
+    display: none !important;
+}
+}
+@media screen and (max-width: 40em) {
+.desktop-only {
+    display: none !important;
+}
+}
+.mobile-nav {
+    background: none repeat scroll 0 0 #444;
+    bottom: 0;
+    box-shadow: -3px 0 7px rgba(0, 0, 0, 0.5) inset;
+    color: white;
+    height: 100%;
+    left: calc((100% - 60px) * -1);
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 60px);
+    z-index: 100;
+}
+.mobile-nav, .inner-wrapper {
+    transition: all 0s ease 0s, all 300ms ease 0s, all 0s ease-out 0s, all 0ms ease 0s;
+}
+.inner-wrapper {
+    left: 0;
+    position: relative;
+}
+.mobile-nav-open {
+    overflow: hidden;
+}
+.mobile-nav-open .mobile-nav {
+    left: 0;
+}
+.mobile-nav-open .outer-wrapper {
+    overflow: hidden;
+}
+.mobile-nav-open .outer-wrapper .inner-wrapper {
+    left: calc(100% - 60px);
+}
+@media screen and (max-width: 40em) {
+.desktop-nav {
+    display: none;
+}
+}
+.mobile-menu .header-module, .mobile-menu .header-submodule {
+    display: block;
+    margin-right: 0;
+}
+.mobile-menu > li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 0;
+}
+.mobile-menu > li:last-child {
+    border: medium none;
+}
+.mobile-menu .menu-description {
+    display: none;
+}
+.mobile-menu .sign-in {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-right: 0;
+}
+.mobile-menu a {
+    display: block;
+    font-size: 15px;
+    height: auto;
+    line-height: inherit;
+}
+.mobile-menu a, .mobile-menu a:link, .mobile-menu a:visited {
+    color: white;
+}
+.mobile-menu .dropdown > a:after {
+    content: "▼";
+    display: inline-block;
+    font-size: 8px;
+    margin-left: 4px;
+    position: relative;
+    top: -1px;
+}
+.mobile-menu .header-submodule > a, .mobile-menu .dropdown-top-level, .mobile-menu .sign-in, .mobile-menu .sign-up {
+    padding: 10px;
+}
+.mobile-menu .dropdown-menu {
+    background: none repeat scroll 0 0 #333;
+    display: none;
+}
+.mobile-menu .dropdown-menu li {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 0;
+    padding: 10px;
+}
+.mobile-menu .submit {
+    margin: 10px;
+}
+.mobile-submit {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+.mobile-submit .button {
+    max-width: none;
+}
+.notification-item {
+    margin-bottom: 10px;
+}
+.posts-wrapper {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.more-button {
+    display: block;
+}
+.user-list, .user-table {
+    font-size: 13px;
+}
+.user-list .user .user-avatar, .user-table .user .user-avatar {
+    background-size: 30px 30px;
+    border-radius: 30px;
+    display: block;
+    height: 30px;
+    width: 30px;
+}
+.filter-sort {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
+    padding: 15px;
+}
+.filter-sort:before, .filter-sort:after {
+    content: "";
+    display: table;
+}
+.filter-sort:after {
+    clear: both;
+}
+.filter-sort a, .filter-sort span {
+    display: inline-block;
+    margin-right: 20px;
+}
+.filter-sort a.active, .filter-sort span.active {
+    border-bottom: 2px solid #7ac0e4;
+}
+.filter-sort a:last-child, .filter-sort span:last-child {
+    margin-right: 0;
+}
+.filter-sort .filter {
+    float: left;
+}
+.filter-sort .sort {
+    float: right;
+}
+.mobile-nav .search {
+    padding: 10px;
+}
+.search-field {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #4a4444;
+}
+.post-category {
+    background: none repeat scroll 0 0 #eee;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 3px 5px 1px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+.post-category:hover {
+    background: none repeat scroll 0 0 #dd3416;
+    color: white;
+}
+.add-category {
+    background: none repeat scroll 0 0 #fffcea;
+}
+.content-wrapper {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 10px;
+    padding: 10px 10px 0;
+}
+@media screen and (max-width: 30em) {
+.content-wrapper {
+    overflow-x: hidden;
+}
+}
+.grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    width: 100%;
+}
+.grid-small, .at-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+@media screen and (min-width: 30em) {
+.grid-small, .at-form {
+    max-width: 500px;
+}
+}
+.popover, .share-options {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #dd3416;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0s ease 0s, all 300ms ease 0s;
+    z-index: 100;
+}
+.grid-block, .comment-content, .comment-new, .error, .at-error {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px dashed #ccc;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.has-shadow, .single-post .posts .post, .post-body {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+.cf, .queue-container ul, .comment-new {
+}
+.cf:before, .queue-container ul:before, .comment-new:before, .cf:after, .queue-container ul:after, .comment-new:after {
+    content: "";
+    display: table;
+}
+.cf:after, .queue-container ul:after, .comment-new:after {
+    clear: both;
+}
+.header .logo, .nav {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+body, textarea, input, button, input[type="submit"], input[type="button"] {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
+}
+body, textarea, input {
+    color: #4a4444;
+    line-height: 1.6;
+}
+h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.small {
+    color: #b3c1c6;
+    font-size: 80%;
+}
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italic;
+}
+@font-face {
+    font-family: "icomoon";
+    src: url("packages/telescope-theme-hubble/lib/client/scss/fonts/icomoon.eot");
+}
+@font-face {
+    font-family: "icomoon";
+    font-style: normal;
+    font-weight: normal;
+    src: url("data:font/opentype;charset=utf-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiID4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWV0YWRhdGE+ClRoaXMgaXMgYSBjdXN0b20gU1ZHIGZvbnQgZ2VuZXJhdGVkIGJ5IEljb01vb24uCjAKPC9tZXRhZGF0YT4KPGRlZnM+Cjxmb250IGlkPSJpY29tb29uIiBob3Jpei1hZHYteD0iNTEyIiA+Cjxmb250LWZhY2UgdW5pdHMtcGVyLWVtPSI1MTIiIGFzY2VudD0iNDgwIiBkZXNjZW50PSItMzIiIC8+CjxtaXNzaW5nLWdseXBoIGhvcml6LWFkdi14PSI1MTIiIC8+CjxnbHlwaCB1bmljb2RlPSImI3g3MzsiIGQ9Ik0gMzY0LjYzMiwzOTQuNzA4bCAxMDguNjMyLTEwOC42MzJsLTEwOC42MzItMTA4LjYzMmwwLjAwLDc3LjU5NSBsLTEyNC4xNTEsMzEuMDM3bCAxMjQuMTUxLDMxLjAzOUwgMzY0LjYzMiwzOTQuNzA4ICBNIDM2NC42MjUsNDI1Ljc0NgoJYy0zLjk5NywwLjAwLTguMDI5LTAuNzcyLTExLjg2OS0yLjM2M2MtMTEuNTk4LTQuODA0LTE5LjE2LTE2LjEyMi0xOS4xNi0yOC42NzZsMC4wMC01My4zNjEgbC0xMDAuNjQzLTI1LjE2CgljLTEzLjgxNS0zLjQ1Ni0yMy41MS0xNS44NjktMjMuNTEtMzAuMTEyYzAuMDAtMTQuMjQxLCA5LjY5My0yNi42NTYsIDIzLjUxLTMwLjExMWwgMTAwLjY0My0yNS4xNmwwLjAwLTUzLjM2MSAKCWMwLjAwLTEyLjU1NiwgNy41NjItMjMuODcyLCAxOS4xNi0yOC42NzZjIDMuODQtMS41ODgsIDcuODcyLTIuMzYzLCAxMS44NjktMi4zNjNjIDguMDc4LDAuMDAsIDE2LjAxNSwzLjE1MywgMjEuOTUzLDkuMDkybCAxMDguNjM0LDEwOC42MzQKCWMgMTIuMTIyLDEyLjEyLCAxMi4xMjIsMzEuNzcyLDAuMDAsNDMuODk0bC0xMDguNjM0LDEwOC42MzJDIDM4MC42NCw0MjIuNTkzLCAzNzIuNzAzLDQyNS43NDYsIDM2NC42MjUsNDI1Ljc0NkwgMzY0LjYyNSw0MjUuNzQ2eiBNIDE0Ny4zNjgsMjcwLjU1NwoJbDAuMDAtNzcuNTk1IGwgMTI0LjE1MS0zMS4wMzlsLTEyNC4xNTEtMzEuMDM3bDAuMDAtNzcuNTk1IGwtMTA4LjYzMiwxMDguNjMyTCAxNDcuMzY4LDI3MC41NTcgTSAxNDcuMzczLDMwMS41OTVjLTguMDc4LDAuMDAtMTYuMDE1LTMuMTUzLTIxLjk1Mi05LjA5MgoJbC0xMDguNjMyLTEwOC42MzJjLTEyLjEyMy0xMi4xMjItMTIuMTIzLTMxLjc3MywwLjAwLTQzLjg5NGwgMTA4LjYzMi0xMDguNjMyYyA1LjkzOC01LjkzOSwgMTMuODc2LTkuMDkyLCAyMS45NTItOS4wOTIKCWMgNC4wMCwwLjAwLCA4LjAzMiwwLjc3MiwgMTEuODcyLDIuMzYzYyAxMS41OTgsNC44MDQsIDE5LjE2LDE2LjEyMiwgMTkuMTYsMjguNjc1bDAuMDAsNTMuMzYxIGwgMTAwLjY0MywyNS4xNgoJYyAxMy44MTYsMy40NTUsIDIzLjUwOCwxNS44NjksIDIzLjUwOCwzMC4xMTFjMC4wMCwxNC4yNDMtOS42OTIsMjYuNjU2LTIzLjUwOCwzMC4xMTJsLTEwMC42NDMsMjUuMTU4bDAuMDAsNTMuMzYyIAoJYzAuMDAsMTIuNTU0LTcuNTYyLDIzLjg3MS0xOS4xNiwyOC42NzZDIDE1NS40MDYsMzAwLjgyMiwgMTUxLjM3MywzMDEuNTk1LCAxNDcuMzczLDMwMS41OTVMIDE0Ny4zNzMsMzAxLjU5NXoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3g2MzsiIGQ9Ik0gMzM0Ljg5NCw0MTMuMzM1YyA3OC40MjQsMC4wMCwgMTQxLjk5OC02My41NzYsIDE0MS45OTgtMTQyLjAwMmMwLjAwLTc4LjQyNC02My41NzQtMTQxLjk5OC0xNDEuOTk4LTE0Mi4wMDFsMC4wMC0wLjAwMSAKCWwtNjMuMTE3LDAuMDAgbC05NC42NjgtOTQuNjY4bDAuMDAsOTQuNjY4IGwwLjAwLDAuMDA0IGMtNzguNDI3LDAuMDAtMTQyLjAwMSw2My41NzQtMTQyLjAwMSwxNDEuOTk4YzAuMDAsNzguNDI2LCA2My41NzQsMTQyLjAwMiwgMTQyLjAwMSwxNDIuMDAybCAxNTcuNzgsMC4wMCAKCSBNIDMzNC44OTQsNDQ0Ljg5MUwgMTc3LjExLDQ0NC44OTEgYy05NS43MCwwLjAwLTE3My41NTYtNzcuODU3LTE3My41NTYtMTczLjU1OGMwLjAwLTg0LjkyOCwgNjEuMzExLTE1NS44MDQsIDE0Mi4wMDEtMTcwLjY4bDAuMDAtNjUuOTg5IAoJYzAuMDAtMTIuNzYzLCA3LjY4OS0yNC4yNjksIDE5LjQ4LTI5LjE1MmMgMy45MDMtMS42MTgsIDguMDA0LTIuNDA0LCAxMi4wNjktMi40MDRjIDguMjEyLDAuMDAsIDE2LjI4MywzLjIwNSwgMjIuMzIxLDkuMjQzbCA4NS40MjIsODUuNDI1bCA1MC4wNDcsMC4wMCAKCWMgOTUuNjk3LDAuMDAsIDE3My41NTQsNzcuODYxLCAxNzMuNTU0LDE3My41NThDIDUwOC40NDgsMzY3LjAzNCwgNDMwLjU4OSw0NDQuODkxLCAzMzQuODk0LDQ0NC44OTFMIDMzNC44OTQsNDQ0Ljg5MXoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3gyMTkzOyIgZD0iTSA1MDEuNzYsMzE2LjE2MWMwLjAwLTE1LjcyNC02LjAwMS0zMS40NDctMTcuOTk3LTQzLjQ0N0wgMjk5LjQ0MSw4OC4zOTNjLTIzLjk5Mi0yMy45OTItNjIuODk1LTIzLjk5Mi04Ni44ODgsMC4wMAoJbC0xODQuMzIsMTg0LjMyMWMtMjMuOTkyLDI0LjAwLTIzLjk5Miw2Mi44OTUsIDAuMDAxLDg2Ljg5MmMgMjMuOTkyLDIzLjk5MiwgNjIuODk1LDIzLjk5MiwgODYuODg4LDAuMDBsIDE0MC44NzQtMTQwLjg3OEwgMzk2Ljg3MywzNTkuNjA0CgljIDIzLjk5NiwyMy45OTIsIDYyLjg5OSwyMy45OTIsIDg2Ljg5MiwwLjAwQyA0OTUuNzU5LDM0Ny42MDgsIDUwMS43NiwzMzEuODg1LCA1MDEuNzYsMzE2LjE2MUwgNTAxLjc2LDMxNi4xNjF6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4NmM7IiBkPSJNIDQ0Mi41MTQsMzQ4LjM0M2wtMTA4LjgwLDAuMDAgYy0zNC4yOCwwLjAwLTYyLjE3MS0yNy44OTEtNjIuMTcxLTYyLjE3MWwwLjAwLTMxLjA4NiBsLTMxLjA4NSwwLjAwIGwwLjAwLDMxLjA4NiAKCWMwLjAwLDM0LjI4MS0yNy44OTEsNjIuMTcxLTYyLjE3MSw2Mi4xNzFsLTEwOC44MCwwLjAwIGMtMzQuMjgxLDAuMDAtNjIuMTcxLTI3Ljg5MS02Mi4xNzEtNjIuMTcxbDAuMDAtMTI0LjM0MyBjMC4wMC0zNC4yODEsIDI3Ljg5MS02Mi4xNzEsIDYyLjE3MS02Mi4xNzFsIDEwOC44MCwwLjAwIAoJYyAzNC4yODEsMC4wMCwgNjIuMTcxLDI3Ljg5LCA2Mi4xNzEsNjIuMTcxbDAuMDAsMzEuMDg2IGwgMzEuMDg1LDAuMDAgbDAuMDAtMzEuMDg2IGMwLjAwLTM0LjI4MSwgMjcuODkxLTYyLjE3MSwgNjIuMTcxLTYyLjE3MWwgMTA4LjgwLDAuMDAgCgljIDM0LjI4MSwwLjAwLCA2Mi4xNzEsMjcuODksIDYyLjE3MSw2Mi4xNzFsMC4wMCwxMjQuMzQzIEMgNTA0LjY4NSwzMjAuNDUyLCA0NzYuNzk1LDM0OC4zNDMsIDQ0Mi41MTQsMzQ4LjM0M3ogTSAzNDkuMjU3LDE5Mi45MTVMIDM2NC44MCwxOTIuOTE1IAoJYyA4LjU4NCwwLjAwLCAxNS41NDMsNi45NTksIDE1LjU0MywxNS41NDNsMC4wMCwzMS4wODUgYzAuMDAsOC41ODQtNi45NTksMTUuNTQzLTE1LjU0MywxNS41NDNsLTE1LjU0MywwLjAwIGwwLjAwLDE1LjU0MyBsIDc3LjcxNCwwLjAwIGwwLjAwLTkzLjI1NyBsLTc3LjcxNCwwLjAwIEwgMzQ5LjI1NywxOTIuOTE1IHoKCSBNIDM2NC44MCwyMzkuNTQzbDAuMDAtMzEuMDg1IEwgMTQ3LjIwLDIwOC40NTggbDAuMDAsMzEuMDg1IEwgMzY0LjgwLDIzOS41NDMgeiBNIDE2Mi43NDMsMjU1LjA4NkwgMTQ3LjIwLDI1NS4wODYgYy04LjU4NCwwLjAwLTE1LjU0My02Ljk1OS0xNS41NDMtMTUuNTQzbDAuMDAtMzEuMDg1IAoJYzAuMDAtOC41ODQsIDYuOTU5LTE1LjU0MywgMTUuNTQzLTE1LjU0M2wgMTUuNTQzLDAuMDAgbDAuMDAtMTUuNTQ0IEwgODUuMDI5LDE3Ny4zNzEgbDAuMDAsOTMuMjU3IGwgNzcuNzE0LDAuMDAgTCAxNjIuNzQzLDI1NS4wODYgeiBNIDIwOS4zNzEsMTYxLjgyOQoJYzAuMDAtMTcuMDk2LTEzLjk4OS0zMS4wODYtMzEuMDg1LTMxLjA4NmwtMTA4LjgwLDAuMDAgYy0xNy4wOTgsMC4wMC0zMS4wODYsMTMuOTktMzEuMDg2LDMxLjA4NmwwLjAwLDEyNC4zNDMgYzAuMDAsMTcuMDk3LCAxMy45ODcsMzEuMDg2LCAzMS4wODYsMzEuMDg2bCAxMDguODAsMC4wMCAKCWMgMTcuMDk2LDAuMDAsIDMxLjA4NS0xMy45ODksIDMxLjA4NS0zMS4wODZsMC4wMC0zMS4wODYgbC0zMS4wODUsMC4wMCBsMC4wMCwxNS41NDMgYzAuMDAsOC41ODQtNi45NTksMTUuNTQzLTE1LjU0MywxNS41NDNMIDg1LjAyOSwyODYuMTcyIAoJYy04LjU4NCwwLjAwLTE1LjU0My02Ljk1OS0xNS41NDMtMTUuNTQzbDAuMDAtOTMuMjU3IGMwLjAwLTguNTg0LCA2Ljk1OS0xNS41NDMsIDE1LjU0My0xNS41NDNsIDc3LjcxNCwwLjAwIGMgOC41ODQsMC4wMCwgMTUuNTQzLDYuOTU5LCAxNS41NDMsMTUuNTQzCglsMC4wMCwxNS41NDQgbCAzMS4wODUsMC4wMCBMIDIwOS4zNzEsMTYxLjgyOSB6IE0gNDczLjYwLDE2MS44MjljMC4wMC0xNy4wOTYtMTMuOTktMzEuMDg2LTMxLjA4Ni0zMS4wODZsLTEwOC44MCwwLjAwIGMtMTcuMDk4LDAuMDAtMzEuMDg1LDEzLjk5LTMxLjA4NSwzMS4wODZsMC4wMCwzMS4wODYgCglsIDMxLjA4NSwwLjAwIGwwLjAwLTE1LjU0NCBjMC4wMC04LjU4NCwgNi45NjEtMTUuNTQzLCAxNS41NDQtMTUuNTQzbCA3Ny43MTQsMC4wMCBjIDguNTg0LDAuMDAsIDE1LjU0Myw2Ljk1OSwgMTUuNTQzLDE1LjU0M2wwLjAwLDkzLjI1NyAKCWMwLjAwLDguNTg0LTYuOTU5LDE1LjU0My0xNS41NDMsMTUuNTQzbC03Ny43MTQsMC4wMCBjLTguNTg0LDAuMDAtMTUuNTQ0LTYuOTU5LTE1LjU0NC0xNS41NDNsMC4wMC0xNS41NDMgbC0zMS4wODUsMC4wMCBsMC4wMCwzMS4wODYgCgljMC4wMCwxNy4wOTcsIDEzLjk4NywzMS4wODYsIDMxLjA4NSwzMS4wODZsIDEwOC44MCwwLjAwIGMgMTcuMDk2LDAuMDAsIDMxLjA4Ni0xMy45ODksIDMxLjA4Ni0zMS4wODZMIDQ3My42MCwxNjEuODI5IHoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3gyNzA1OyIgZD0iTSAxOTUuODM5LDEwLjg4YyAxLjEwNiwwLjAwLCAyLjIxNywwLjAzMiwgMy4zMjgsMC4wOTFjIDE3LjA4OCwwLjk0OCwgMzIuOTYxLDkuMTI2LCA0My42NTEsMjIuNDg3bCAyNDAuNjQxLDMwMC43OTkKCWMgMjAuNzU2LDI1Ljk0NCwgMTYuNTQ0LDYzLjgwMy05LjM5Niw4NC41NTZjLTI1Ljk0NiwyMC43NTktNjMuODA0LDE2LjU1LTg0LjU1OS05LjM5MUwgMTkwLjg1MiwxNjEuMTA2bC03Mi43OTEsNzIuNzkyCgljLTIzLjQ5NywyMy40OTctNjEuNTg1LDIzLjQ5Ny04NS4wODMsMC4wMGMtMjMuNDkzLTIzLjQ5Mi0yMy40OTMtNjEuNTg1LDAuMDAtODUuMDc4bCAxMjAuMzItMTIwLjMxOQoJQyAxNjQuNjEzLDE3LjE4OSwgMTc5LjkyOCwxMC44OCwgMTk1LjgzOSwxMC44OEwgMTk1LjgzOSwxMC44OHoiIC8+CjxnbHlwaCB1bmljb2RlPSImI3gyYjsiIGQ9Ik0gMzAwLjMxNiwyNjguMzE5bC0wLjAwMSwxNDMuNjk1YzAuMDAsMjQuNDcyLTE5Ljg0MSw0NC4zMTItNDQuMzE0LDQ0LjMxMgoJYy0yNC40OCwwLjAwLTQ0LjMxOS0xOS44MzktNDQuMzE2LTQ0LjMxNmwwLjAwLTE0My42OTQgbC0xNDMuNjk1LTAuMDAxYy0yNC40NzksMC4wMDEtNDQuMzE3LTE5LjgzNy00NC4zMTYtNDQuMzE2CgljMC4wMC0yNC40NzIsIDE5Ljg0LTQ0LjMxNCwgNDQuMzEyLTQ0LjMxNGwgMTQzLjY5OCwwLjAwIGwwLjAwLTE0My42OTdjIDAuMDAxLTI0LjQ3NCwgMTkuODQzLTQ0LjMxNSwgNDQuMzE1LTQ0LjMxNQoJYyAxMi4yMzgsMC4wMDMsIDIzLjMxOCw0Ljk2MSwgMzEuMzM4LDEyLjk4MmMgOC4wMTksOC4wMTksIDEyLjk3NywxOS4wOTgsIDEyLjk3OSwzMS4zMzRsIDAuMDAxLDE0My42OTVsIDE0My42OTQsMC4wMCAKCWMgMTIuMjM4LDAuMDA1LCAyMy4zMTgsNC45NjQsIDMxLjMzNiwxMi45OGMgOC4wMTksOC4wMjIsIDEyLjk3OCwxOS4xMDEsIDEyLjk4LDMxLjMzN2MwLjAwLDI0LjQ3Mi0xOS44NDEsNDQuMzEyLTQ0LjMxNSw0NC4zMTUKCUwgMzAwLjMxNiwyNjguMzE5eiIgLz4KPGdseXBoIHVuaWNvZGU9IiYjeDI2MzA7IiBkPSJNIDMwMS43MSwxNzcuNDg0bCAxNDguMjIxLDAuMDAzYyAyNS4yNDMsMC4wMCwgNDUuNzA4LDIwLjQ2NiwgNDUuNzA4LDQ1LjcwOGMwLjAwLDI1LjI1MS0yMC40NjEsNDUuNzE0LTQ1LjcxMSw0NS43MTEKCUwgMzAxLjcxLDI2OC45MDUgbC05MS40MjEsMC4wMDFsLTE0OC4yMjEsMC4wMGMtMjUuMjQzLTAuMDAxLTQ1LjcwOS0yMC40NjctNDUuNzA5LTQ1LjcxYyAwLjAwMy0xMi42MjIsIDUuMTE5LTI0LjA1MSwgMTMuMzktMzIuMzIzCgljIDguMjcxLTguMjc0LCAxOS43MC0xMy4zODYsIDMyLjMyMS0xMy4zODlsIDE0OC4yMTktMC4wMDNMIDMwMS43MSwxNzcuNDgyIHpNIDMwMS43MSwzMzEuMDg0bCAxNDguMjIxLDAuMDAzYyAyNS4yNDMsMC4wMCwgNDUuNzA4LDIwLjQ2NiwgNDUuNzA4LDQ1LjcwOGMwLjAwLDI1LjI1MS0yMC40NjEsNDUuNzE0LTQ1LjcxMSw0NS43MTEKCUwgMzAxLjcxLDQyMi41MDUgbC05MS40MjEsMC4wMDFsLTE0OC4yMjEsMC4wMGMtMjUuMjQzLTAuMDAxLTQ1LjcwOS0yMC40NjctNDUuNzA5LTQ1LjcxYyAwLjAwMy0xMi42MjIsIDUuMTE5LTI0LjA1MSwgMTMuMzktMzIuMzIzCgljIDguMjcxLTguMjc0LCAxOS43MC0xMy4zODYsIDMyLjMyMS0xMy4zODlsIDE0OC4yMTktMC4wMDNMIDMwMS43MSwzMzEuMDgyIHpNIDMwMS43MSwyMy44ODRsIDE0OC4yMjEsMC4wMDNjIDI1LjI0MywwLjAwLCA0NS43MDgsMjAuNDY2LCA0NS43MDgsNDUuNzA4YzAuMDAsMjUuMjUyLTIwLjQ2MSw0NS43MTQtNDUuNzExLDQ1LjcxMQoJTCAzMDEuNzEsMTE1LjMwNSBsLTkxLjQyMSwwLjAwM0wgNjIuMDY3LDExNS4zMDggYy0yNS4yNDMtMC4wMDMtNDUuNzA5LTIwLjQ2Ny00NS43MDktNDUuNzFjIDAuMDAzLTEyLjYyMiwgNS4xMTktMjQuMDUxLCAxMy4zOS0zMi4zMjMKCWMgOC4yNzEtOC4yNzQsIDE5LjcwLTEzLjM4NiwgMzIuMzIxLTEzLjM4OWwgMTQ4LjIxOS0wLjAwM0wgMzAxLjcxLDIzLjg4NCB6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4NzU7IiBkPSJNIDI1Ni4wMCw0MTUuNDI5YyA0Mi4yOSwwLjAwLCA3Ni41NzEtMzQuMjgxLCA3Ni41NzEtNzYuNTcxbDAuMDAtNjEuMjU3IGMwLjAwLTI1LjA1LTYxLjI1Ny0xMDcuMjAtNjEuMjU3LTEwNy4yMGwtMC40MjQtMC40MjUKCWMgODEuNTU0LTQuNDY3LCAxNTMuNDAyLTQ1LjM4MSwgMTk5LjUxLTEwNi43NTFsMC4wMC0zMC42NTIgbC00MjguODAsMC4wMCBsMC4wMCwzMC42NTUgYyA0Ni4xMDksNjEuMzY3LCAxMTcuOTU2LDEwMi4yODEsIDE5OS41MSwxMDYuNzQ4bC0wLjQyNSwwLjQyNQoJYzAuMDAsMC4wMC02MS4yNTcsODIuMTUtNjEuMjU3LDEwNy4yMGwwLjAwLDYxLjI1NyBDIDE3OS40MjksMzgxLjE0NywgMjEzLjcxLDQxNS40MjksIDI1Ni4wMCw0MTUuNDI5IE0gMjU2LjAwLDQ0Ni4wNTdjLTU5LjExLDAuMDAtMTA3LjIwLTQ4LjA5LTEwNy4yMC0xMDcuMjAKCWwwLjAwLTYxLjI1NyBjMC4wMC0xMi4yMTUsIDQuMjIzLTMxLjIyNywgMzUuNTQyLTc5LjYzMWMgMS4wNi0xLjYzNywgMi4xMTYtMy4yNTgsIDMuMTY5LTQuODU4Yy02Ny41MzktMTUuODQzLTEyNy44OC01NC44OTktMTcwLjM5Ny0xMTEuNDg3CgljLTMuOTg2LTUuMzA2LTYuMTQxLTExLjc2Mi02LjE0MS0xOC4zOTlsMC4wMC0zMC42NTUgYzAuMDAtMTYuOTE1LCAxMy43MTMtMzAuNjI5LCAzMC42MjktMzAuNjI5bCA0MjguODAsMC4wMCBjIDE2LjkxNSwwLjAwLCAzMC42MjksMTMuNzE0LCAzMC42MjksMzAuNjI5CglsMC4wMCwzMC42NTIgYzAuMDAsNi42MzctMi4xNTYsMTMuMDkzLTYuMTQxLDE4LjM5N2MtNDIuNTE2LDU2LjU4OS0xMDIuODU3LDk1LjY0OC0xNzAuMzk3LDExMS40OTFjIDEuMDUyLDEuNjAsIDIuMTA4LDMuMjIsIDMuMTY5LDQuODU4CgljIDMxLjMxOSw0OC40MDQsIDM1LjU0Miw2Ny40MTYsIDM1LjU0Miw3OS42MzFsMC4wMCw2MS4yNTcgQyAzNjMuMjAsMzk3Ljk2NywgMzE1LjExMiw0NDYuMDU3LCAyNTYuMDAsNDQ2LjA1N0wgMjU2LjAwLDQ0Ni4wNTd6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4NzA7IiBkPSJNIDM4Ni43ODMsMjU5LjgwMmMtNy42NzUsMTUuMDE3LTE4LjAyLDI4LjczMy0zMC4zNDgsNDAuMzI0TCAzNTYuNDM1LDM3OS40ODggCgljIDEzLjMyNywzLjQzMiwgMjMuMTc2LDE1LjUzLCAyMy4xNzYsMjkuOTNMIDM3OS42MTEsNDQwLjMyIGMwLjAwLDE3LjA2OC0xMy44MzYsMzAuOTAzLTMwLjkwMywzMC45MDNMIDE2My4yOTEsNDcxLjIyMyBjLTE3LjA2OCwwLjAwLTMwLjkwMy0xMy44MzYtMzAuOTAzLTMwLjkwMwoJbDAuMDAtMzAuOTAzIGMwLjAwLTE0LjQwLCA5Ljg1LTI2LjQ5OSwgMjMuMTc3LTI5LjkzbDAuMDAtNzkuMzYxIGMtMTIuMzI4LTExLjU5LTIyLjY3NS0yNS4zMDctMzAuMzQ4LTQwLjMyNAoJYy0xMC40NzMtMjAuNDk1LTE2LjAwNi00My41NjEtMTYuMDA2LTY2LjcwM2MwLjAwLTE3LjA2OSwgMTMuODM2LTMwLjkwNCwgMzAuOTAzLTMwLjkwNGwgNjkuNTMxLDAuMDAgbDAuMDAtNjEuODA1IEwgMjU2LjAwLTIzLjIyM2wgNDYuMzU0LDEyMy42MTFsMC4wMCw2MS44MDUgCglsIDY5LjUzMiwwLjAwIGMgMTcuMDY4LDAuMDAsIDMwLjkwMywxMy44MzYsIDMwLjkwMywzMC45MDRDIDQwMi43ODksMjE2LjI0MSwgMzk3LjI1NCwyMzkuMzA2LCAzODYuNzgzLDI1OS44MDJ6IE0gMTYzLjI5MSw0NDAuMzJsIDE4NS40MTcsMC4wMCBsMC4wMC0zMC45MDMgTCAxNjMuMjkxLDQwOS40MTcgCglMIDE2My4yOTEsNDQwLjMyIHogTSAzMjUuNTMxLDMwMS4yNTdMIDE4Ni40NjksMzAxLjI1NyBMIDE4Ni40NjksMzkzLjk2NiBsIDEzOS4wNjMsMC4wMCBMIDMyNS41MzIsMzAxLjI1NyB6IE0gMjcxLjQ1MSwxMDUuOTkzTCAyNTYuMDAsNjQuNzg3bC0xNS40NTEsNDEuMjA0bDAuMDAsNTYuMjAxIGwgMzAuOTAzLDAuMDAgTCAyNzEuNDUyLDEwNS45OTMgegoJIE0gMTQwLjExNCwxOTMuMDk3YzAuMDAsMzcuOTEsIDE4LjIwNyw3MS40NjIsIDQ2LjM1Myw5Mi43MDhsIDEzOS4wNjcsMC4wMCBjIDI4LjE0Mi0yMS4yNDUsIDQ2LjM1My01NC43OTksIDQ2LjM1My05Mi43MDhMIDE0MC4xMTQsMTkzLjA5NyB6IiAvPgo8Z2x5cGggdW5pY29kZT0iJiN4MjE5MTsiIGQ9Ik0gNTAxLjc2LDEzMS44MzZjMC4wMC0xNS43MjQtNi4wMDEtMzEuNDQ3LTE3Ljk5Ny00My40NDNjLTIzLjk5Mi0yMy45OTItNjIuODk1LTIzLjk5Mi04Ni44OTIsMC4wMEwgMjU1Ljk5NywyMjkuMjcKCUwgMTE1LjEyMyw4OC4zOTNjLTIzLjk5Mi0yMy45OTItNjIuODk1LTIzLjk5Mi04Ni44ODgsMC4wMEMgNC4yNDEsMTEyLjM4OSwgNC4yNDEsMTUxLjI4MywgMjguMjM0LDE3NS4yODNsIDE4NC4zMiwxODQuMzIxCgljIDIzLjk5MiwyMy45OTIsIDYyLjg5NSwyMy45OTIsIDg2Ljg4OCwwLjAwTCA0ODMuNzYzLDE3NS4yODNDIDQ5NS43NTksMTYzLjI4MywgNTAxLjc2LDE0Ny41NiwgNTAxLjc2LDEzMS44MzZMIDUwMS43NiwxMzEuODM2eiIgLz4KPGdseXBoIHVuaWNvZGU9IiYjeDIxOTA7IiBkPSJNIDM0NS4xNjMsNDcyLjc1N2MgMTUuNzI0LDAuMDAgMzEuNDQ3LTYuMDAxIDQzLjQ0My0xNy45OTdjIDIzLjk5Mi0yMy45OTIgMjMuOTkyLTYyLjg5NTAuMDAtODYuODkyTCAyNDcuNzI5LDIyNi45OTQKCUwgMzg4LjYwNiw4Ni4xMmMgMjMuOTkyLTIzLjk5MiAyMy45OTItNjIuODk1MC4wMC04Ni44ODhDIDM2NC42MS0yNC43NjIsIDMyNS43MTYtMjQuNzYyLCAzMDEuNzE2LTAuNzY5bCAtMTg0LjMyMSwxODQuMzIKCWMgLTIzLjk5MiwyMy45OTIsIC0yMy45OTIsNjIuODk1LCAwLjAwLDg2Ljg4OEwgMzAxLjcxNiw0NTQuNzZDIDMxMy43MTYsNDY2Ljc1NiwgMzI5LjQzOSw0NzIuNzU3LCAzNDUuMTYzLDQ3Mi43NTdMIDM0NS4xNjMsNDcyLjc1N3oiIC8+CjxnbHlwaCB1bmljb2RlPSImI3gyMTkyOyIgZD0iTSAxNjAuODM5LTI0Ljc2MWMtMTUuNzI0LDAuMDAtMzEuNDQ3LDYuMDAxLTQzLjQ0MywxNy45OTdjLTIzLjk5MiwyMy45OTItMjMuOTkyLDYyLjg5NTAuMDAsODYuODkyTCAyNTguMjczLDIyMS4wMDIKCUwgMTE3LjM5NiwzNjEuODc2Yy0yMy45OTIsMjMuOTkyLTIzLjk5Miw2Mi44OTUwLjAwLDg2Ljg4OEMgMTQxLjM5Miw0NzIuNzU4LCAxODAuMjg2LDQ3Mi43NTgsIDIwNC4yODYsNDQ4Ljc2NWwgMTg0LjMyMS0xODQuMzIKCWMgMjMuOTkyLTIzLjk5MiwgMjMuOTkyLTYyLjg5NSwgMC4wMC04Ni44ODhMIDIwNC4yODYtNi43NjRDIDE5Mi4yODYtMTguNzYsIDE3Ni41NjMtMjQuNzYxLCAxNjAuODM5LTI0Ljc2MUwgMTYwLjgzOS0yNC43NjF6IiAvPgo8Z2x5cGggY2xhc3M9ImhpZGRlbiIgdW5pY29kZT0iJiN4ZjAwMDsiIGQ9Ik0wLDQ4MEwgNTEyIC0zMkwwIC0zMiB6IiBob3Jpei1hZHYteD0iMCIgLz4KPC9mb250PjwvZGVmcz48L3N2Zz4=") format("svg"), url("data:font/ttf;charset=utf-8;base64,AAEAAAANAIAAAwBQRkZUTWLd/dIAAAvcAAAAHEdERUYAPQAGAAALvAAAACBPUy8yEAbcHwAAAVgAAABWY21hcEoiTrYAAAHwAAABmmdhc3D//wADAAALtAAAAAhnbHlmnYDmbQAAA7AAAAX0aGVhZPpzz10AAADcAAAANmhoZWEEEP/xAAABFAAAACRobXR4GqoBmAAAAbAAAABAbG9jYQzcC3gAAAOMAAAAIm1heHAAWACPAAABOAAAACBuYW1l24uKfgAACaQAAAGJcG9zdJhcgR0AAAswAAAAgQABAAAAAQAAxoteJF8PPPUACwIAAAAAAMyqR1AAAAAAzKpHUAAA/+ACAAHgAAAACAACAAAAAAAAAAEAAAHg/+AALgIAAAD+AAIAAAEAAAAAAAAAAAAAAAAAAAAQAAEAAAAQAIwABgAAAAAAAgAAAAEAAQAAAEAAAAAAAAAAAQIAAZAABQAIAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAIABQMAAAAAAAAAAAABEADAIAAAAAAAAAAAUGZFZABAACvwAAHg/+AALgHgACCAAAABAAAAAAAAAgAAAAAAAAAAqgAAAgAABwIAAAMCAAAKAgAABwIAAA8CAAAXAgAAEAIAAAoCAABtAgAACgIAAGMCAABjAAAAAAAAAAMAAAADAAAAHAABAAAAAACUAAMAAQAAABwABAB4AAAAGAAQAAMACAAAACsAYwBsAHAAcwB1IZMmMCcF8AD//wAAAAAAKwBjAGwAcABzAHUhkCYwJwXwAP//AAD/3f+h/5r/m/+Q/5UAANnZ2QIQDwABAAAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAA0ADAAOAAUAAAEGAAABAAAAAAAAAAECAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAGAAAACwAAAwAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAJQAtAFgAYQBrgHuAjwCjgKuAs4C7AL6AAAABAAHABYB+QGqAAUAHwAlAD8AAAEXBzUnNzUiBwYdAQcOARQWHwEVFBcWMzI/ATY0LwEmBxUXBxUnNyIPAQYUHwEWMzI3Nj0BNz4BNCYvATU0JyYBbWxsfX0HBRNlCg4OCmUTBQcMCmwJCWwK5n19bGwMCmwJCWwKDAcFE2UKDg4KZRMFAYttbU4fH20DCBQ2GQIRFhADGTYUCAMJbQkaCW0Jm04fH05tjAltCRoJbQkDCBQ2GQIRFhADGTYUCAMAAgADAAMB/QG9AA0AIgAAATIWFAYrAQc1IiY0NjM3IyIGFRQWFxUUFxYzMj8BMzI2NCYBTztTUzs/XztTUzuenkhlUT0TBgYNCVYySGVlAZ1TdVReXlR1UyBmSD9gC0IVCAMJVmaPZgABAAoARgH2AXoAEAAAABQPAQYiLwEmNDYyHwE3NjIB9hK5EjISuRIkMxKNjRIzAVYzErkSErkSMyQSjY0SAAAABgAHAGMB+QFdACMAMQA1AEMAZwCLAAABIyIGHQEjNTQmKwEiBh0BFBY7ATI2PQEzFRQWOwEyNj0BNCYHMzI2PQE0JisBNTMVIzcVIzU3IyIGHQEUFjsBFSM1MxcUBisBIiY9ATQ2OwEyFh0BIzU0JisBIgYdARQWOwEyNj0BMwUUBisBIiY9ATMVFBY7ATI2PQE0JisBIgYdASM1NDY7ATIWFQG7bRokICQabRklJRltGiQgJBptGSUldxAGCQkGEE5OENoQEAYJCQYQTk4uEg1tDBMTDG0NEh8JBk4GCgoGTgYJHwEJEwxtDRIfCQZOBgoKBk4GCR8SDW0MEwFcJBofHxokJBp8GiQkGh8fGiQkGnwaJJsJBiAGCRBePyAgDwkGIAYJEF5tDRISDXwNEhINHxAGCQkGXgYJCQYQHw0SEg0fEAYJCQZeBgkJBhAfDRISDQAAAAABAA8ACgHxAbAAEwAANzIzNjcTNi4BBg8BJyYiBhQfARbEAQIbEfAQBScyD8dJEjEkEngSCwEVAS0UMR8FFPhJEiQyEXgSAAABABf/9wHpAckAGwAAATU0JiIGHQEjIgYUFjsBFRQWMjY9ATMyNjQmIwEsGiQakBIaGhKQGiQakBIaGhIBDJASGhoSkBokGpASGhoSkBokGgAAAAADABAAFwHwAacADwAfAC8AACUzMjY0JisDIgYUFjsBNzMyNjQmKwMiBhQWOwETMzI2NCYrAyIGFBY7AQEulBMbGxOUXJQTGxsTlFyUExsbE5RclBMbGxOUXJQTGxsTlFyUExsbE5SxGyYbGyYbmhsmGxsmG/7NGyYaGiYbAAAAAAIACgABAfYBvwAVADUAABIyFh0BFA4BMR4BFxUhNT4BNyY9ATQ2IgYdARQXFhcGBwYdARQWMyEyNj0BNCcmJzY3Nj0BNOBALR8fPGgj/lQjaDw+eVg/IwICakEGEg0BrA0SBkFqAgIjAZ8sID0MNSsDOS8eHi85A1MZPSBLPyw9GTcDAhlWCQoeDRISDR4KCVYZAgM3GT0sAAAAAAUAbf/oAZMB2AAkACgALAAxADcAAAEmJzU+AT0BNCYrASIGHQEUFhcVBgcGFRQWOwEVFzc1MzI2NTQnMxUjFyM1MwMHJzUzJzQ3MxYVAYMMEwsNEg26DRINCxMMEBINRi4uRg0S8Lq6o4yMNw8PHoMujC4BBBYSTwMRCh8NEhINHwoRA08SFiAjDRI+e3s+Eg0j1B9sXf7gKSk4HzojIzoAAAAAAQAKAEYB9gF6ABAAACQUBiIvAQcGIiY0PwE2Mh8BAfYkMxKNjRIzJBK5EjISuZ0zJBKNjRIkMxK5EhK5AAAAAAEAY//tAZcB2QAQAAAAMhYUDwEXFhQGIi8BJjQ/AQFAMyQSjY0SJDMSuRISuQHZJDMSjY0SMyQSuRIyErkAAAABAGP/5wGXAdMAEAAAFiImND8BJyY0NjIfARYUDwG6MyQSjY0SJDMSuRISuRkkMxKNjRIzJBK5EjISuQABAAD/4AIAAeAAAgAAEQEhAgD+AAHg/gAAAAAAAAAMAJYAAQAAAAAAAQAHABAAAQAAAAAAAgAHACgAAQAAAAAAAwAkAHoAAQAAAAAABAAHAK8AAQAAAAAABQALAM8AAQAAAAAABgAHAOsAAwABBAkAAQAOAAAAAwABBAkAAgAOABgAAwABBAkAAwBIADAAAwABBAkABAAOAJ8AAwABBAkABQAWALcAAwABBAkABgAOANsAaQBjAG8AbQBvAG8AbgAAaWNvbW9vbgAAUgBlAGcAdQBsAGEAcgAAUmVndWxhcgAARgBvAG4AdABGAG8AcgBnAGUAIAAyAC4AMAAgADoAIABpAGMAbwBtAG8AbwBuACAAOgAgADIAMgAtADEAMAAtADIAMAAxADIAAEZvbnRGb3JnZSAyLjAgOiBpY29tb29uIDogMjItMTAtMjAxMgAAaQBjAG8AbQBvAG8AbgAAaWNvbW9vbgAAVgBlAHIAcwBpAG8AbgAgADEALgAwAABWZXJzaW9uIDEuMAAAaQBjAG8AbQBvAG8AbgAAaWNvbW9vbgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAQACAFYARgECAE8BAwAOAQQAWABTAQUBBgEHAQgJYXJyb3dkb3duB3VuaTI3MDUHdW5pMjYzMAdhcnJvd3VwCWFycm93bGVmdAphcnJvd3JpZ2h0B3VuaUYwMDAAAAAAAAAB//8AAgABAAAADgAAABgAAAAAAAIAAQADAA8AAQAEAAAAAgAAAAAAAQAAAADJiW8xAAAAAMyqR1AAAAAAzKpHUA==") format("truetype");
+}
+[data-icon]:before {
+    content: attr(data-icon);
+    font-family: "icomoon";
+    font-weight: normal;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "icomoon";
+    font-style: normal;
+    font-weight: normal;
+}
+.icon-share:before {
+    content: "s";
+}
+.icon-comment:before {
+    content: "c";
+}
+.icon-down:before {
+    content: "↓";
+}
+.icon-link:before {
+    content: "l";
+}
+.icon-check:before {
+    content: "✅";
+}
+.icon-plus:before {
+    content: "+";
+}
+.icon-menu:before {
+    content: "☰";
+}
+.icon-user:before {
+    content: "u";
+}
+.icon-pin:before {
+    content: "p";
+}
+.icon-up:before {
+    content: "↑";
+}
+.icon-left:before {
+    content: "←";
+}
+.icon-right:before {
+    content: "→";
+}
+.has-tooltip {
+    position: relative;
+}
+.has-tooltip .tooltip {
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: -40px;
+    transition: all 0s ease-out 0s, opacity 0s ease 0s, all 300ms ease 0s, all 0ms ease 0s;
+    z-index: 9999;
+}
+.has-tooltip .tooltip span {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    left: -50%;
+    padding: 0 8px;
+    position: relative;
+    white-space: nowrap;
+}
+.has-tooltip .tooltip span:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(0, 0, 0, 0.6) transparent transparent;
+    border-image: none;
+    border-right: 6px solid transparent;
+    border-style: solid;
+    border-width: 6px;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -6px;
+    position: absolute;
+    top: 100%;
+    width: 0;
+}
+.has-tooltip:hover .tooltip {
+    opacity: 1;
+}
+.at-oauth {
+    text-align: center;
+}
+.at-oauth .at-social-btn {
+    margin: 0 auto 15px;
+}
+.at-sep {
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.at-sep:before, .at-sep:after {
+    border-bottom: 1px solid #ddd;
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 48%;
+    width: 100%;
+}
+.at-sep:before {
+    left: -55%;
+}
+.at-sep:after {
+    right: -55%;
+}
+.at-input label {
+    margin-bottom: 5px;
+}
+#at-forgotPwd {
+    float: right;
+    font-size: 13px;
+    margin-top: -8px;
+}
+#at-btn {
+    margin: 0 auto;
+}
+.at-title {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.at-signup-link, .at-signin-link {
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    padding-top: 15px;
+    text-align: center;
+}
+.banner.banner {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+.banner-heading {
+    border-bottom: 1px solid #b5b0b0;
+    color: #a4a9ab;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.banner-dismiss, .banner-dismiss:link, .banner-dismiss:visited {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.15);
+    border-radius: 100%;
+    color: white;
+    display: block;
+    font-size: 24px;
+    height: 30px;
+    line-height: 32px;
+    margin-top: -15px;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    top: 50%;
+    vertical-align: middle;
+    width: 30px;
+}
+@media screen and (max-width: 30em) {
+.banner-dismiss, .banner-dismiss:link, .banner-dismiss:visited {
+    margin-top: 0;
+    right: 10px;
+    top: 10px;
+}
+}
+.banner-dismiss:hover {
+    color: inherit;
+}
+.header {
+    background-color: #34495e;
+    border-bottom: 1px solid #495c6e;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 100;
+}
+.header:before, .header:after {
+    content: "";
+    display: table;
+}
+.header:after {
+    clear: both;
+}
+@media screen and (max-width: 30em) {
+.header {
+    padding: 0 10px;
+}
+}
+.header .primary-nav {
+    float: left;
+    position: relative;
+    z-index: 20;
+}
+.header .logo {
+    color: white;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+@media screen and (max-width: 30em) {
+.header .logo {
+    font-size: 18px;
+}
+.header .logo a {
+    position: static;
+}
+}
+@media screen and (min-width: 30em) {
+.header .logo {
+    font-size: 24px;
+}
+}
+.header .logo a, .header .logo a:visited {
+    color: white;
+}
+.header .logo-image {
+    line-height: 1;
+}
+.header .logo-image a {
+    background: none no-repeat scroll center center rgba(0, 0, 0, 0);
+    color: transparent;
+    display: inline-block;
+    font: 0px/0 a;
+    text-shadow: none;
+}
+.header .secondary-nav {
+    float: right;
+    position: relative;
+    z-index: 20;
+}
+.sign-in {
+    margin-right: 10px;
+}
+.nav {
+}
+.nav:before, .nav:after {
+    content: "";
+    display: table;
+}
+.nav:after {
+    clear: both;
+}
+.nav > li {
+    line-height: 2;
+}
+.nav > li:last-child {
+    margin-right: 0;
+}
+.nav > li > a, .nav > li > div > a {
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
+.search {
+    position: relative;
+}
+.search .search-field {
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 4px 12px;
+    transition: all 0.2s ease 0s;
+    width: 200px;
+}
+.search .search-field:focus {
+    outline: medium none;
+}
+.search.empty .search-field {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+    color: #999;
+    width: 120px;
+}
+.search.empty .search-field:focus {
+    background: none repeat scroll 0 0 white;
+    width: 200px;
+}
+.has-dropdown .user-menu .dropdown-menu {
+    left: auto;
+    right: 10px;
+}
+.has-dropdown .notifications-menu .dropdown-menu {
+    left: auto;
+    right: 10px;
+}
+.newsletter-dismiss {
+    line-height: 30px !important;
+}
+.posts-list-description {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.module {
+    border-radius: 0;
+}
+.posts {
+    display: table;
+    position: relative;
+    width: 100%;
+}
+.single-post .posts {
+    margin-bottom: 10px;
+}
+.single-post .posts .post {
+    border-radius: 3px;
+}
+.post {
+    align-items: center;
+    background: none repeat scroll 0 0 white;
+    border-bottom: 1px solid #e7eff2;
+    border-radius: 0;
+    display: flex;
+    margin-bottom: 0;
+    padding: 10px 0 10px 10px;
+    position: relative;
+    width: 100%;
+}
+.post:first-child {
+    border-radius: 3px 3px 0 0;
+}
+.post:last-child {
+    border-radius: 0 0 3px 3px;
+}
+.post.animate {
+    transition: all 0s ease-out 0s, top 0s ease 0s, all 400ms ease 0s, all 0ms ease 0s;
+}
+.post.inactive .post-content {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQYV2NkIALMnDlTkpGQOpCi9PT053gVwhSBDMOpEFkRToXoirAqxKYIQyEuRSgK8SmCKySkCKyQGEUghQC5OyXvW/4BHwAAAABJRU5ErkJggg==");
+}
+.post .post-module {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+.post .post-upvote {
+    order: 1;
+    padding: 0 5px;
+}
+@media screen and (max-width: 30em) {
+.post .post-upvote {
+    display: none;
+}
+}
+.post .post-content {
+    align-items: center;
+    flex-shrink: 1;
+    order: 2;
+    width: 100%;
+}
+@media screen and (min-width: 30em) {
+.post .post-content {
+    display: flex;
+    flex-grow: 1;
+}
+}
+.post .post-info {
+    flex-grow: 1;
+}
+.post .post-share {
+    order: 3;
+}
+.post .post-discuss {
+    order: 7;
+}
+@media screen and (max-width: 30em) {
+.post .post-discuss {
+    display: none;
+}
+}
+@media screen and (min-width: 30em) {
+.post .post-discuss .action-label {
+    display: block;
+}
+}
+.post .post-share, .post .post-discuss {
+    text-align: center;
+}
+.post .post-actions {
+    order: 8;
+}
+.post .post-avatars {
+    order: 6;
+}
+.post .post-share {
+    display: none;
+}
+.post.show-actions .post-content {
+    display: none;
+}
+.post.show-actions .post-share, .post.show-actions .post-discuss, .post.show-actions .post-upvote {
+    display: block;
+    flex-grow: 1;
+}
+.post-actions {
+    display: none;
+    text-align: right;
+}
+@media screen and (max-width: 30em) {
+.post-actions {
+    display: block;
+}
+}
+.post-actions a {
+    display: block;
+    height: 36px;
+    padding: 6px;
+    width: 36px;
+}
+.post-actions a span {
+    border: 1px solid rgba(221, 52, 22, 0.3);
+    border-radius: 3px;
+    color: rgba(221, 52, 22, 0.8);
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 14px;
+    text-align: center;
+    width: 100%;
+}
+.post-upvote .upvote-link {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+.post-upvote .upvote-link i {
+    border: 1px solid rgba(221, 52, 22, 0.3);
+    border-radius: 50%;
+    color: rgba(221, 52, 22, 0.8);
+    display: inline-block;
+    font-size: 10px;
+    height: 24px;
+    line-height: 2.3;
+    margin: 5px;
+    opacity: 0.4;
+    text-align: center;
+    text-shadow: 0 1px 0 white;
+    width: 24px;
+}
+.post-upvote .upvote-link i:before {
+    top: 0;
+}
+.post-upvote .upvote-link i.icon-check {
+    display: none;
+}
+.post-upvote .upvote-link .action-label {
+    display: none;
+}
+@media screen and (max-width: 30em) {
+.post-upvote .upvote-link .action-label {
+    display: block;
+}
+}
+.post-upvote .upvote-link.not-voted:hover i {
+    opacity: 1;
+    text-shadow: none;
+}
+.post-upvote .upvote-link.voted {
+    cursor: default;
+}
+.post-upvote .upvote-link.voted i.icon-up {
+    display: none;
+}
+.post-upvote .upvote-link.voted i.icon-check {
+    border: 1px solid rgba(122, 192, 228, 0.6);
+    color: rgba(122, 192, 228, 0.8);
+    display: inline-block;
+    opacity: 0.5;
+}
+.post-meta-item {
+    display: inline-block;
+}
+.empty-notice {
+    padding: 10px 0;
+    text-align: center;
+}
+.posts-wrapper {
+    margin-bottom: 20px;
+    padding: 0;
+}
+.post-module.post-rank {
+    margin: 0;
+}
+.post-rank-inner {
+    height: 25px;
+    position: relative;
+}
+.post-rank-inner span {
+    color: rgba(0, 0, 0, 0.2);
+    display: block;
+    font-size: 18px;
+    height: 25px;
+    left: -60px;
+    line-height: 25px;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    width: 30px;
+}
+@media screen and (max-width: 30em) {
+.post-rank-inner {
+    display: none;
+}
+}
+.post-content {
+    min-height: 40px;
+}
+.post-content .post-sticky {
+    display: block;
+    font-size: 24px;
+    position: absolute;
+    right: -40px;
+    top: 16px;
+}
+.post-content .post-sticky i {
+    color: #b3c1c6;
+}
+.post-content .post-sticky span {
+    display: none;
+}
+.post-heading {
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+.post-heading .post-title {
+    font-weight: normal;
+}
+@media screen and (max-width: 30em) {
+.post-heading .post-title {
+    font-size: 15px;
+}
+}
+@media screen and (min-width: 30em) {
+.post-heading .post-title {
+    font-size: 18px;
+}
+}
+.post-heading .post-title:visited {
+    color: #b5b0b0;
+}
+.post-heading .post-domain {
+    color: #b3c1c6;
+    font-weight: normal;
+}
+@media screen and (max-width: 30em) {
+.post-heading .post-domain {
+    font-size: 13px;
+}
+}
+@media screen and (min-width: 30em) {
+.post-heading .post-domain {
+    font-size: 14px;
+}
+}
+.post-categories {
+    text-align: right;
+}
+.post-meta {
+    color: #b3c1c6;
+    font-size: 13px;
+    line-height: 1.5;
+}
+@media screen and (max-width: 30em) {
+.post-meta {
+    font-size: 11px;
+    line-height: 1.7;
+}
+}
+.post-meta a:link, .post-meta a:visited, .post-meta a:active {
+    color: #a4a9ab;
+}
+.post-meta a:hover {
+    color: #dd3416;
+}
+.post-author .avatar {
+    display: inline-block;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 20px;
+}
+.action {
+    color: #b3c1c6;
+    display: block;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+.action.edit-link {
+    color: #dd3416;
+}
+.action.share-link {
+    color: #b3c1c6;
+}
+.action.discuss-link {
+    color: #b3c1c6;
+}
+.action.more-link {
+    color: #7ac0e4;
+}
+.action:hover, .action:hover .action {
+    color: #dd3416;
+}
+.action.voted {
+    color: white;
+    cursor: default;
+}
+.action .points {
+    display: block;
+    font-size: 30px;
+    line-height: 50px;
+}
+.action-icon {
+    display: block;
+    font-size: 36px;
+    height: 36px;
+}
+.action-icon:before {
+    position: relative;
+    top: -10px;
+}
+.action-label {
+    bottom: 5px;
+    color: #1abb9c;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+}
+.action-count {
+    display: block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 4px;
+    width: 100%;
+}
+.post-body {
+    background: none repeat scroll 0 0 white;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding: 0 10px;
+}
+.list .post-body {
+    display: none;
+}
+.post.sticky {
+    background: none repeat scroll 0 0 #fffce0;
+}
+.more-button {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 3px 3px;
+    color: white;
+    display: block;
+    font-size: 18px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.more-button:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.15);
+}
+.inner-table {
+    display: table;
+    height: 100%;
+}
+.inner-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+@media screen and (max-width: 30em) {
+}
+.post-avatars {
+    display: flex;
+}
+@media screen and (max-width: 30em) {
+.post-avatars {
+    display: none;
+}
+}
+.post-avatars .author-avatar {
+    display: block;
+}
+.post-avatars .post-commenters {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    display: block;
+    padding-left: 5px;
+}
+.post-avatars .avatar-link {
+    display: inline-block;
+    margin-right: 5px;
+}
+.post-avatars .avatar-link:last-child {
+    margin-right: 0;
+}
+.post-avatars .avatar {
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    width: 24px;
+}
+.no-posts {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.queue-container {
+    height: 0;
+    position: relative;
+    transition: all 0s ease-out 0s, opacity 0s ease 0s, all 400ms ease 0s, all 0ms ease 0s;
+}
+.queue-container ul {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    left: 10px;
+    margin-left: 100%;
+    max-width: 120px;
+    padding: 10px 0 0 10px;
+    position: absolute;
+    top: -30px;
+    white-space: nowrap;
+}
+.queue-container ul:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(255, 255, 255, 0) rgba(0, 0, 0, 0.05) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    border-image: none;
+    border-style: solid;
+    border-width: 8px;
+    content: " ";
+    height: 0;
+    margin-top: -8px;
+    pointer-events: none;
+    position: absolute;
+    right: 100%;
+    top: 25px;
+    width: 0;
+}
+.queue-container ul li {
+    background: none repeat scroll 0 0 #dd3416;
+    border-radius: 100px;
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    text-align: center;
+    width: 30px;
+}
+.queue-container ul li.before {
+    position: absolute;
+}
+.queue-container ul li a {
+    background-size: 30px 30px;
+    border-radius: 100px;
+    display: block;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    width: 30px;
+}
+.comment {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 0;
+    position: relative;
+}
+@media screen and (max-width: 30em) {
+.comment {
+    margin-left: 10px;
+}
+}
+@media screen and (min-width: 30em) {
+.comment {
+    margin-left: 30px;
+}
+}
+.comment .comment-body {
+    opacity: 1;
+    position: relative;
+    transition: all 0s ease-out 0s, opacity 0s ease 0s, all 600ms ease 0s, all 0ms ease 0s;
+}
+.comment.comment-queued .comment-body {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+.comment .comment-reply {
+    display: inline-block;
+    margin-top: 10px;
+}
+.comment-content {
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+}
+@media screen and (max-width: 30em) {
+.comment-content {
+    border-radius: 3px;
+}
+}
+@media screen and (min-width: 30em) {
+.comment-content {
+    border-radius: 0 3px 3px;
+}
+}
+.comment-text, .comment-text p {
+    font-size: 16px;
+}
+@media screen and (max-width: 30em) {
+.comment-text, .comment-text p {
+    font-size: 13px;
+}
+}
+.comment-meta {
+    border-bottom: 1px solid #e7eff2;
+    color: #b3c1c6;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.comment-meta:before, .comment-meta:after {
+    content: "";
+    display: table;
+}
+.comment-meta:after {
+    clear: both;
+}
+@media screen and (max-width: 30em) {
+.comment-meta {
+    padding-left: 15px;
+}
+}
+.comment-meta .user-avatar, .comment-meta .comment-username, .comment-meta .comment-time, .comment-meta .comment-permalink {
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.comment-meta .user-avatar {
+    border-radius: 100px;
+}
+.comment-meta .user-avatar .avatar {
+    height: 30px;
+    width: 30px;
+}
+.comment-meta .comment-permalink {
+    color: #b3c1c6;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 20px;
+}
+.comment-meta .comment-permalink:before {
+    display: block;
+    left: 0;
+    position: absolute;
+    text-indent: 0;
+    top: 1px;
+}
+.comment-meta .comment-permalink:hover:before {
+    color: #dd3416;
+}
+.comment-actions {
+    position: absolute;
+}
+@media screen and (max-width: 30em) {
+.comment-actions {
+    left: -10px;
+    top: 5px;
+}
+}
+@media screen and (min-width: 30em) {
+.comment-actions {
+    left: -30px;
+    top: 0;
+}
+}
+.comment-actions a {
+    border: 1px solid #ccc;
+    border-radius: 50px !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    display: block;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 30px;
+}
+@media screen and (max-width: 30em) {
+.comment-actions a {
+    border-radius: 0 0 3px 3px;
+}
+}
+@media screen and (min-width: 30em) {
+.comment-actions a {
+    border-radius: 0 0 0 3px;
+}
+}
+.comment-actions a.upvote {
+    margin-bottom: 1px;
+}
+@media screen and (max-width: 30em) {
+.comment-actions a.upvote {
+    border-radius: 3px 3px 0 0;
+}
+}
+@media screen and (min-width: 30em) {
+.comment-actions a.upvote {
+    border-radius: 3px 0 0;
+}
+}
+.comment-actions a i {
+    color: #dd3416;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    text-indent: 0;
+    width: 30px;
+}
+.comment-actions a:hover {
+    background: none repeat scroll 0 0 #4e555d;
+}
+.comment-actions a:hover i {
+    color: white;
+}
+.comment-actions.upvoted .upvote, .comment-actions.downvoted .downvote {
+    cursor: default;
+}
+.comment-actions.upvoted .upvote i, .comment-actions.downvoted .downvote i {
+    color: #7ac0e4;
+}
+.comment-actions.upvoted .upvote:hover, .comment-actions.downvoted .downvote:hover {
+    background: none repeat scroll 0 0 white;
+}
+.comment-actions.downvoted .upvote, .comment-actions.upvoted .downvote {
+    cursor: default;
+}
+.comment-actions.downvoted .upvote i, .comment-actions.upvoted .downvote i {
+    color: #b3c1c6;
+}
+.comment-actions.downvoted .upvote:hover, .comment-actions.upvoted .downvote:hover {
+    background: none repeat scroll 0 0 white;
+}
+.comment-new .comment-submit-button {
+    display: inline-block;
+}
+.comment-page .comment-new {
+    background: none repeat scroll 0 0 #ffffff;
+    margin-left: 30px;
+    position: relative;
+}
+.comment-page .comment-new:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) #ffffff;
+    border-image: none;
+    border-style: solid;
+    border-width: 8px;
+    bottom: 100%;
+    content: " ";
+    height: 0;
+    left: 20px;
+    margin-left: -8px;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+}
+.comment-deleted {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+    color: #b3c1c6;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
+#comment {
+    font-size: 16px;
+}
+.dialog {
+    margin-bottom: 10px;
+}
+.dialog h2 {
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.footer-notice {
+    text-align: center;
+}
+.user-profile .user-avatar {
+    border-radius: 80px;
+    display: block;
+    height: 80px;
+    width: 80px;
+}
+.error, .at-error {
+    background: none repeat scroll 0 0 #dd3416;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.share-options {
+    line-height: 1;
+    padding: 10px;
+    position: absolute;
+}
+@media screen and (max-width: 30em) {
+.share-options {
+    left: 0;
+    top: 75px;
+}
+}
+@media screen and (min-width: 30em) {
+.share-options {
+    left: -180px;
+    top: 5px;
+}
+}
+.share-options a {
+    display: inline-block;
+    line-height: 1;
+}
+.share-options.hidden {
+    display: block;
+    left: -160px;
+    opacity: 0;
+    pointer-events: none;
+}
+.share-options:after, .share-options:before {
+    border: medium solid transparent;
+    content: " ";
+    height: 0;
+    left: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+}
+.share-options:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 10px;
+}
+@media screen and (max-width: 30em) {
+.share-options:after {
+    border-bottom-color: #ffffff;
+    left: 50%;
+    margin-left: -11px;
+    top: -20px;
+}
+}
+@media screen and (min-width: 30em) {
+.share-options:after {
+    border-left-color: #ffffff;
+    margin-top: -3px;
+    top: 20px;
+}
+}
+.share-options:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 11px;
+}
+@media screen and (max-width: 30em) {
+.share-options:before {
+    border-bottom-color: #dd3416;
+    left: 50%;
+    margin-left: -12px;
+    top: -22px;
+}
+}
+@media screen and (min-width: 30em) {
+.share-options:before {
+    border-left-color: #dd3416;
+    margin-top: -4px;
+    top: 20px;
+}
+}
+.share-options .buttons {
+    padding: 15px 5px 5px 15px;
+}
+.share-options .buttons:before, .share-options .buttons:after {
+    content: "";
+    display: table;
+}
+.share-options .buttons:after {
+    clear: both;
+}
+.share-options .buttons .button {
+    background: none repeat scroll 0 0 transparent;
+    float: left;
+    height: 100%;
+    margin-right: 10px;
+    padding: 0;
+}
+a.mt-share-inline-square-sm img {
+    border: 0 none;
+    height: auto;
+    width: 34px;
+}
+a.mt-share-inline-square-sm {
+    border-radius: 2px;
+    display: inline-block;
+    height: 34px;
+    margin-right: 4px;
+    width: 34px;
+}
+.mt-google:hover {
+    background-color: #e15f4f;
+}
+.mt-google {
+    background-color: #dd4b39;
+}
+.mt-linkedin:hover {
+    background-color: #1087c0;
+}
+.mt-linkedin {
+    background-color: #0e76a8;
+}
+.mt-twitter:hover {
+    background-color: #08bbff;
+}
+.mt-twitter {
+    background-color: #00acee;
+}
+.mt-facebook:hover {
+    background-color: #4264aa;
+}
+.mt-facebook {
+    background-color: #3b5998;
+}
+.mt-pinterest:hover {
+    background-color: #dd2a30;
+}
+.mt-pinterest {
+    background-color: #cc2127;
+}
+.post-thumbnail {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+@media screen and (max-width: 30em) {
+.post-thumbnail {
+    float: right;
+    margin: 0 0 0 10px;
+}
+}
+.post-thumbnail-link {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 80px;
+}
+@media screen and (max-width: 30em) {
+.post-thumbnail-link {
+    width: 50px;
+}
+}
+.post-thumbnail-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.post-thumbnail-has-video:after {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 100%;
+    color: white;
+    content: "‣";
+    display: block;
+    font-size: 40px;
+    height: 36px;
+    left: 50%;
+    line-height: 38px;
+    margin: -18px 0 0 -18px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    top: 50%;
+    width: 36px;
+    z-index: 10;
+}
+@media screen and (max-width: 30em) {
+.post-thumbnail-has-video:after {
+    display: none;
+}
+}
+.post-video-lightbox {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000;
+}
+.post-video-lightbox-inner {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20000;
+}
+.post-video-lightbox-hide, .post-video-lightbox-hide:link, .post-video-lightbox-hide:visited, .post-video-lightbox-hide:hover {
+    color: white;
+    display: block;
+    font-size: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    top: 20px;
+    width: 40px;
+}
+.post-thumbnail-container {
+    position: relative;
+}
+.post-thumbnail-preview {
+    background: none repeat scroll 0 0 #eee;
+}
+.post-thumbnail-loading {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+.loading .post-thumbnail-loading {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4);
+    display: block;
+}
+.newsletter-banner form {
+    text-align: center;
+    vertical-align: middle;
+}
+.newsletter-tagline {
+    display: inline-block;
+    font-weight: 400;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.newsletter-subscribed {
+    bottom: 0;
+    font-weight: bold;
+    left: 0;
+    line-height: 74px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+}
+.newsletter-banner form, .newsletter-subscribed {
+    transition: opacity 0.3s ease-out 0s;
+}
+.newsletter-email.newsletter-email {
+    border-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 2px;
+    vertical-align: middle;
+    width: auto;
+}
+.button.newsletter-button {
+    display: inline-block;
+    float: none;
+    position: relative;
+    vertical-align: middle;
+}
+.show-loader {
+    pointer-events: none;
+}
+.show-loader .newsletter-tagline, .show-loader .newsletter-email {
+    opacity: 0.35;
+}
+.show-loader .newsletter-button {
+    color: rgba(255, 255, 255, 0);
+}
+.button-loader {
+    display: none;
+}
+.show-loader .button-loader {
+    bottom: 0;
+    display: block;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+@media screen and (max-width: 30em) {
+}
+.posts-day-heading {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+.empty-day-notice {
+    padding: 15px;
+}
+.posts-day .post:last-child {
+    border-radius: 0 0 3px 3px;
+}
+.load-more-days-button {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    font-size: 18px;
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.update-banner {
+    overflow: hidden;
+}
+.update-content {
+    float: left;
+}
+.update-version {
+    background: none repeat scroll 0 0 #dd3416;
+    color: white;
+    float: left;
+    margin: 0 15px 0 0;
+    padding: 5px 10px;
+    text-align: center;
+}
+.update-prompt {
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+.update-message {
+    font-size: 14px;
+}
+.add-feed {
+    background: none repeat scroll 0 0 #fffcea;
+}
